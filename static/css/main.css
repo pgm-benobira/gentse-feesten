@@ -135,6 +135,7 @@ header a:hover::after {
 /* Language button */
 
 .language-button {
+    position: relative;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -143,6 +144,48 @@ header a:hover::after {
 
 .language-button svg {
     width: 1.4rem;
+}
+
+/* Language button (when open) */
+
+.language-button--open:hover {
+    color: white;
+}
+
+.language-button--open svg {
+    transform: rotate(180deg);
+}
+
+.language--active:hover {
+    color: var(--red);
+}
+
+.languages {
+    display: none;
+    position: absolute;
+    border: 1px solid white;
+    background-color: black;
+    top: 2rem;
+    left: 0;
+    box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.languages--open {
+    display: block;
+}
+
+.languages:hover {
+    color: white;
+}
+
+.language {
+    padding: 0.6rem 1.6rem;
+}
+
+.language:hover {
+    background-color: var(--red);
+    color: white;
 }
 
 /* Search button */

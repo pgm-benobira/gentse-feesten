@@ -26,6 +26,7 @@
 
 body {
     font-family: 'Fira Sans';
+    /* background: black; */
 }
 
 ul {
@@ -36,6 +37,22 @@ ul {
 a {
     color: black;
     text-decoration: none;
+}
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0;
+}
+
+button:hover {
+    cursor: pointer;
+    color: var(--red);
+}
+
+button svg:hover {
+    fill: var(--red);
 }
 
 .header__inner,
@@ -60,8 +77,19 @@ header a {
     color: white;
 }
 
+header a:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1.6rem;
+    height: 0.2rem;
+    background-color: white;
+    margin-top: 1rem;
+}
+
 .header__inner {
-    padding: 3rem 2.2rem;
+    padding: 4rem 2.2rem;
+    transition: 0.3s ease;
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -75,22 +103,99 @@ header a {
     align-items: center;
 }
 
-.menu {
-    display: flex;
-    gap: 3rem;
+/* Logo */
+
+.logo:hover::after {
+    content: '';
+    display: none;
 }
 
 #LOGO-TIJDELIJK {
-    font-size: 3.6rem;
-    line-height: 3rem;
-    margin-right: 3.4rem;
+    padding-right: 3.4rem;
+    width: 17rem;
+    transition: 0.3s ease;
+}
+
+/* Menu */
+
+.menu {
+    display: flex;
+    gap: 3rem;
 }
 
 /* ---------------------------------- Mobile-nav ------------------------------------- */
 
 .mobile-navigation {
     display: flex;
+    align-items: center;
     gap: 2rem;
+}
+
+/* Language button */
+
+.language-button {
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.language-button svg {
+    width: 1.4rem;
+}
+
+/* Search button */
+
+.search-button {
+    width: 100%;
+    max-width: 1.2rem;
+}
+
+/* Hamburger menu */
+
+.menu-button__wrapper {
+    padding-top: 0.5rem;
+}
+
+.menu-button {
+    width: 3.4rem;
+}
+
+/* ------------------------------ Header media queries -------------------------------- */
+
+@media (max-width: 80rem) {
+    .menu {
+        display: none;
+    }
+    .accessibility {
+        display: none;
+    }
+}
+
+@media (max-width: 64rem) {
+    .header__inner {
+        padding: 2.4rem 2.2rem;
+        transition: 0.3s ease;
+    }
+    .mobile-navigation {
+        gap: 0;
+    }
+    #LOGO-TIJDELIJK {
+        width: 13rem;
+        transition: 0.3s ease;
+    }
+}
+
+@media (max-width: 48rem) {
+    .header__inner {
+        padding: 1.3rem 1.3rem;
+        transition: 0.3s ease;
+    }
+    .language-button {
+        display: none;
+    }
+    .search-button {
+        display: none;}
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════════════

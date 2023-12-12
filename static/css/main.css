@@ -1,10 +1,5 @@
-@font-face {
-    font-family: 'Fira Sans';
-    src: url('../fonts/Fira-Sans/FiraSans-Light.woff2') format('woff2'),
-        url('../fonts/Fira-Sans/FiraSans-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+:root {
+    --red: hsl(0, 79%, 57%);
 }
 
 @font-face {
@@ -15,3 +10,94 @@
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Fira Sans';
+    src: url('../fonts/Fira-Sans/FiraSans-SemiBold.woff2') format('woff2'),
+        url('../fonts/Fira-Sans/FiraSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════════════
+════════════════════════════════════════ GENERAL ════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════════════ */
+
+body {
+    font-family: 'Fira Sans';
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.header__inner,
+.main__inner,
+.footer__inner {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════════════
+════════════════════════════════════════ HEADER ═════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════════════ */
+
+header {
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+header a {
+    color: white;
+}
+
+.header__inner {
+    padding: 3rem 2.2rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+/* ----------------------------------- Main-nav -------------------------------------- */
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 3rem;
+}
+
+#LOGO-TIJDELIJK {
+    font-size: 3.6rem;
+    line-height: 3rem;
+    margin-right: 3.4rem;
+}
+
+/* ---------------------------------- Mobile-nav ------------------------------------- */
+
+.mobile-navigation {
+    display: flex;
+    gap: 2rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════════════════
+═════════════════════════════════════════ MAIN ══════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════════════════════════════════
+════════════════════════════════════════ FOOTER ═════════════════════════════════════════
+══════════════════════════════════════════════════════════════════════════════════════ */

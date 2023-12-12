@@ -88,6 +88,7 @@ header a:hover::after {
 }
 
 .header__inner {
+    position: relative;
     padding: 4rem 2.2rem;
     transition: 0.3s ease;
     display: flex;
@@ -161,6 +162,24 @@ header a:hover::after {
     width: 3.4rem;
 }
 
+/* ---------------------------------- Date sticker ------------------------------------ */
+
+.date {
+    position: absolute;
+    top: 10rem;
+    right: 2rem;
+    background-color: var(--red);
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+    color: black;
+    font-size: 1.8rem;
+    line-height: 6;
+    text-align: center;
+    text-transform: none;
+    transition: 0.3s ease;
+}
+
 /* ------------------------------ Header media queries -------------------------------- */
 
 @media (max-width: 80rem) {
@@ -170,6 +189,13 @@ header a:hover::after {
     .accessibility {
         display: none;
     }
+    .date {
+        width: 9rem;
+        height: 9rem;
+        font-size: 1.5rem;
+        line-height: 5.8;
+        transition: 0.3s ease;
+    }
 }
 
 @media (max-width: 64rem) {
@@ -177,11 +203,12 @@ header a:hover::after {
         padding: 2.4rem 2.2rem;
         transition: 0.3s ease;
     }
-    .mobile-navigation {
-        gap: 0;
-    }
     #LOGO-TIJDELIJK {
         width: 13rem;
+        transition: 0.3s ease;
+    }
+    .date {
+        top: 6.4rem;
         transition: 0.3s ease;
     }
 }
@@ -194,8 +221,15 @@ header a:hover::after {
     .language-button {
         display: none;
     }
+    .mobile-navigation {
+        gap: 0;
+    }
     .search-button {
-        display: none;}
+        display: none;
+    }
+    .date {
+        display: none;
+    }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════════════

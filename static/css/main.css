@@ -57,6 +57,7 @@ button svg:hover {
 }
 
 .header__inner,
+.modal__inner,
 .banner__inner,
 .footer__inner {
     max-width: 90rem;
@@ -76,6 +77,12 @@ header {
 
 header a {
     color: white;
+}
+
+header a::selection,
+header p::selection {
+    color: black;
+    background-color: white;
 }
 
 header a:hover::after {
@@ -138,13 +145,22 @@ header a:hover::after {
 .language-button {
     position: relative;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
+    padding-right: 2rem;
 }
 
-.language-button svg {
-    width: 1.4rem;
+.language--active::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background-image: url(../img/gentse-feesten-icoontjes/chevron-down.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.language--active:hover::after {
+    background-image: url(../img/gentse-feesten-icoontjes/chevron-down--red.svg);
 }
 
 /* Language button (when open) */
@@ -153,12 +169,17 @@ header a:hover::after {
     color: white;
 }
 
-.language-button--open svg {
+.language--active:hover {
+    color: var(--red);
+}
+
+.language-button--open .language--active::after {
+    background-image: url(../img/gentse-feesten-icoontjes/chevron-down.svg);
     transform: rotate(180deg);
 }
 
-.language--active:hover {
-    color: var(--red);
+.language-button--open .language--active:hover::after {
+    background-image: url(../img/gentse-feesten-icoontjes/chevron-down--red.svg);
 }
 
 .languages {
@@ -167,7 +188,7 @@ header a:hover::after {
     border: 1px solid white;
     background-color: black;
     top: 2rem;
-    left: 0;
+    left: -1rem;
     box-shadow: 10px 10px 20px -5px rgba(0,0,0,0.3);
     z-index: 1;
 }
@@ -204,6 +225,45 @@ header a:hover::after {
 
 .menu-button {
     width: 3.4rem;
+}
+
+/* ------------------------------------- Modal ---------------------------------------- */
+
+.modal {
+    background-color: var(--red);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    padding: 4rem 3.3rem;
+}
+
+.modal-open {
+    top: 0;
+}
+
+.modal__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.2rem;
+}
+
+.logo--modal path {
+    fill: black;
+}
+
+.modal button {
+    color: black;
+}
+
+.modal button:hover {
+    color: white;
+}
+
+.modal button svg:hover {
+    fill: white;
 }
 
 /* ---------------------------------- Date sticker ------------------------------------ */
@@ -447,13 +507,13 @@ header a:hover::after {
 @media (max-width: 48rem) {
     .banner__inner  {
         padding: 0;
-        background-size: 26rem;
+        background-size: 24rem;
         background-position-y: 4rem;
         background-position-x: center;
         transition: 0.3s ease;
     }
     .banner__calendar {
-        padding: 34rem 0;
+        padding: 30rem 0;
         max-width: none;
         transition: 0.3s ease;
     }
@@ -484,6 +544,9 @@ header a:hover::after {
     .calendar-link--10 { grid-area: 2 / 5 / 3 / 6; }
     .calendar-link a {
         padding: 1rem 0;
+    }
+    .calendar__day {
+        font-size: 1.4rem;
     }
 }
 

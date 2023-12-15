@@ -27,7 +27,7 @@
 
 body {
     font-family: 'Fira Sans';
-    /* background: black; */
+    background: black;
 }
 
 ul {
@@ -210,8 +210,6 @@ header a:hover::after {
 
 .duration {
     position: absolute;
-    top: 10rem;
-    right: 2rem;
     background-color: var(--red);
     width: 11rem;
     height: 11rem;
@@ -219,9 +217,15 @@ header a:hover::after {
     color: black;
     font-size: 1.8rem;
     line-height: 6;
+    font-weight: 600;
     text-align: center;
     text-transform: none;
     transition: 0.3s ease;
+}
+
+.duration--top {
+    top: 10rem;
+    right: 2rem;
 }
 
 /* ------------------------------ Header media queries -------------------------------- */
@@ -408,3 +412,107 @@ header a:hover::after {
 /* ══════════════════════════════════════════════════════════════════════════════════════
 ════════════════════════════════════════ FOOTER ═════════════════════════════════════════
 ══════════════════════════════════════════════════════════════════════════════════════ */
+
+.footer__inner {
+    padding: 8rem 2.2rem 2rem;
+    position: relative;
+}
+
+/* ------------------------------------ Footer top ------------------------------------- */
+
+.footer--top {
+    background-color: green;
+}
+
+/* ---------------------------------- Date sticker ------------------------------------ */
+
+.duration--bottom {
+    top: -6rem;
+}
+
+/* ---------------------------------- Footer bottom ------------------------------------ */
+
+.footer--bottom {
+    background-color: black;
+}
+
+.big-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 4rem;
+}
+
+.small-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Left side */
+
+.hashtag {
+    display: block;
+    font-size: 3.8rem;
+    line-height: 3.8rem;
+    color: white;
+    font-weight: 600;
+    padding-top: 6rem;
+}
+
+.footer__nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__nav a,
+.disclaimer {
+    display: block;
+    color: hsl(0, 0%, 70%);
+    font-size: 0.85rem;
+}
+
+.footer__nav a:hover {
+    text-decoration: underline;
+}
+
+/* Right side */
+
+.footer__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.socials {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.2rem;
+}
+
+.socials a {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.socials a:hover {
+    background-color: var(--red);
+}
+
+.socials img {
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.organizers {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.organizers a:hover {
+    opacity: 85%;
+}

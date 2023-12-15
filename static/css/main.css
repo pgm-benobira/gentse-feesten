@@ -293,21 +293,19 @@ header a:hover::after {
 
 .banner__inner {
     padding: 8rem 6rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Banner letter image */
-
-.banner__img {
-    width: 55%;
+    background-image: url(../img/gentse-feesten-logos/campagne-1-G.png);
+    background-size: 45rem;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10%;
 }
 
 /* Banner calendar */
 
 .banner__calendar {
     padding: 6rem 2rem;
-    flex-grow: 1;
+    max-width: 34rem;
+    margin-left: auto;
 }
 
 .date-cta {
@@ -343,16 +341,16 @@ header a:hover::after {
     content: '';
     display: block;
     position: absolute;
-    width: 8rem;
+    width: 4rem;
     height: 4rem;
     background-color: var(--beige);
     top: -1rem;
-    left: -6rem;
+    left: -2rem;
     transition: 0.2s ease;
 }
 
 .date-cta:hover::after {
-    left: -9rem;
+    left: -5rem;
     transition: 0.2s ease;
 }
 

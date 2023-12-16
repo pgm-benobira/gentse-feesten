@@ -85,7 +85,8 @@ header p::selection {
     background-color: white;
 }
 
-header a:hover::after {
+.menu__wrapper a:hover::after,
+.accessibility:hover::after {
     content: '';
     display: block;
     position: absolute;
@@ -240,11 +241,27 @@ header a:hover::after {
     padding: 4rem 3.3rem;
 }
 
+.modal::after {
+    content: '';
+    display: block;
+    width: 40vw;
+    height: 100vh;
+    background-image: url(../img/gentse-feesten-logos/campagne-1-G.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--beige);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
 .modal-open {
     top: 0;
 }
 
-.modal__inner {
+.modal__header {
     display: flex;
     justify-content: space-between;
     padding: 0 2.2rem;
@@ -264,6 +281,59 @@ header a:hover::after {
 
 .modal button svg:hover {
     fill: white;
+}
+
+.menu-button--close {
+    margin-right: 0.4rem;
+}
+
+.modal__navigation {
+    padding: 0 2.2rem;
+    padding-top: 6rem;
+}
+
+.modal__navigation li {
+    padding-bottom: 1.2rem;
+}
+
+.modal__navigation a {
+    color: black;
+}
+
+.modal__navigation a:hover {
+    color: white;
+}
+
+.modal__program__container {
+    position: relative;
+}
+
+.modal__program {
+    position: relative;
+    padding-right: 4rem;
+}
+
+.modal__program::after {
+    content: '';
+    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-long.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 4rem;
+    height: 1.2rem;
+    position: absolute;
+    top: 0;
+    left: 9rem;
+}
+
+.modal__program:hover::after {
+    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-long--white.svg);
+}
+
+.modal__program__days {
+    position: absolute;
+    top: 0;
+    left: 15rem;
 }
 
 /* ---------------------------------- Date sticker ------------------------------------ */

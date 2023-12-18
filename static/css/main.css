@@ -146,7 +146,7 @@ header p::selection {
 .language-button {
     position: relative;
     text-transform: uppercase;
-    padding-right: 2rem;
+    padding-right: 1.4rem;
 }
 
 .language--active::after {
@@ -213,9 +213,12 @@ header p::selection {
 
 /* Search button */
 
+.search-button__container {
+    margin-top: 0.4rem;
+}
+
 .search-button {
-    width: 100%;
-    max-width: 1.2rem;
+    width: 1.2rem;
 }
 
 /* Hamburger menu */
@@ -238,7 +241,6 @@ header p::selection {
     z-index: 1;
     top: 100%;
     left: 0;
-    padding: 4rem 3.3rem;
 }
 
 .modal::after {
@@ -257,6 +259,10 @@ header p::selection {
     z-index: -1;
 }
 
+.modal__inner {
+    padding: 4rem 2.2rem;
+}
+
 .modal-open {
     top: 0;
 }
@@ -264,7 +270,6 @@ header p::selection {
 .modal__header {
     display: flex;
     justify-content: space-between;
-    padding: 0 2.2rem;
 }
 
 .logo--modal path {
@@ -283,12 +288,7 @@ header p::selection {
     fill: white;
 }
 
-.menu-button--close {
-    margin-right: 0.4rem;
-}
-
 .modal__navigation {
-    padding: 0 2.2rem;
     padding-top: 6rem;
 }
 
@@ -391,6 +391,12 @@ header p::selection {
     .duration--top {
         top: 6.4rem;
     }
+    .modal__inner {
+        padding: 2.4rem 2.2rem;
+    }
+    .modal::after {
+        display: none;
+    }
 }
 
 @media (max-width: 48rem) {
@@ -409,6 +415,34 @@ header p::selection {
     }
     .duration {
         display: none;
+    }
+    .modal__inner {
+        padding: 1.3rem 1.3rem;
+    }
+    .modal__navigation {
+        padding-top: 3rem;
+    }
+    .modal .mobile-navigation {
+        gap: 1rem;
+    }
+    .modal .language-button {
+        display: inline-block;
+    }
+    .modal .search-button {
+        display: block;
+        width: 1.2rem;
+    }
+    .menu-button--close {
+        width: 2.4rem;
+    }
+    .modal__program::after {
+        left: 7rem;
+    }
+    .modal__program__days {
+        left: 11rem;
+    }
+    #LOGO-TIJDELIJK {
+        padding-right: 1rem;
     }
 }
 

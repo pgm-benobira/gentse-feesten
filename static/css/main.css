@@ -83,6 +83,7 @@ input {
 .header__inner,
 .modal__inner,
 .banner__inner,
+.media__inner,
 .footer__inner {
     max-width: 90rem;
     margin: 0 auto;
@@ -597,8 +598,6 @@ header p::selection {
     font-size: 1.2rem;
 }
 
-/* ------------------------------------- Nieuws -------------------------------------- */
-
 .nieuws {
     padding: 10rem;
     background-color: black;
@@ -695,12 +694,92 @@ header p::selection {
     position: relative;
 }
 
+.media__inner {
+    position: relative;
+    padding: 0 2.2rem;
+}
+
 /* ---------------------------- Footer top / Newsletter ------------------------------ */
 
 .footer--top {
-    padding: 6rem 0;
+    padding-bottom: 6rem;
+    padding-top: 3rem;
     background-color: var(--beige);
 }
+
+/* Media */
+
+.media__inner div {
+    margin-bottom: 2.2rem;
+}
+
+.media__inner a {
+    display: inline-block;
+    background-color: var(--red);
+    font-size: 3.2rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    position: relative;
+}
+
+.media__inner a::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 8rem;
+    height: 4rem;
+}
+
+.media__inner a span {
+    background-color: var(--red);
+    position: relative;
+    z-index: 1;
+}
+
+.media__photos span {
+    padding-right: 3rem;
+}
+
+.media__videos span {
+    padding-left: 3rem;
+}
+
+a.media__photos {
+    padding-right: 8rem;
+    transition: 0.2s ease;
+}
+
+a.media__photos:hover {
+    padding-right: 11rem;
+    transition: 0.2s ease;
+}
+
+a.media__videos {
+    padding-left: 8rem;
+    transition: 0.2s ease;
+}
+
+a.media__videos:hover {
+    padding-left: 11rem;
+    transition: 0.2s ease;
+}
+
+.media__photos::before {
+    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
+    top: 2.1rem;
+    right: 3rem;
+}
+
+.media__videos::before {
+    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
+    transform: rotate(180deg);
+    top: 0.8rem;
+    left: 3rem;
+}
+
+/* Newsletter */
 
 .small-letters {
     display: block;

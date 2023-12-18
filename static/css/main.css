@@ -76,6 +76,10 @@ button svg:hover {
     fill: var(--red);
 }
 
+input {
+    outline: none;
+}
+
 .header__inner,
 .modal__inner,
 .banner__inner,
@@ -593,6 +597,13 @@ header p::selection {
     font-size: 1.2rem;
 }
 
+/* ------------------------------------- Nieuws -------------------------------------- */
+
+.nieuws {
+    padding: 10rem;
+    background-color: black;
+}
+
 /* ----------------------------- 📱 Main media queries -------------------------------- */
 
 @media (max-width: 80rem) {
@@ -602,7 +613,7 @@ header p::selection {
         background-position-y: 58%;
         transition: 0.3s ease;
     }
-    .banner__calendar {
+    .banner__content {
         max-width: 28rem;
         transition: 0.3s ease;
     }
@@ -636,8 +647,9 @@ header p::selection {
         background-position-x: center;
         transition: 0.3s ease;
     }
-    .banner__calendar {
+    .banner__content {
         padding: 30rem 0;
+        padding-bottom: 0;
         max-width: none;
         transition: 0.3s ease;
     }
@@ -683,10 +695,73 @@ header p::selection {
     position: relative;
 }
 
-/* ------------------------------------ Footer top ------------------------------------- */
+/* ---------------------------- Footer top / Newsletter ------------------------------ */
 
 .footer--top {
-    background-color: green;
+    padding: 6rem 0;
+    background-color: var(--beige);
+}
+
+.small-letters {
+    display: block;
+    color: black;
+    font-size: 0.77rem;
+    line-height: 1.4rem;
+}
+
+.banner__content--newsletter {
+    max-width: 39rem;
+    padding-bottom: 0;
+    padding-top: 12rem;
+}
+
+.small-link {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.small-link:hover {
+    color: black;
+}
+
+/* Newsletter form */
+
+.newsletter-form__input {
+    font-size: 1.2rem;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 0.7rem;
+    margin: 1rem 0;
+}
+
+.newsletter-form__input:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: black;
+    outline-offset: 2px;
+}
+
+
+.newsletter-form__submit {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.1rem;
+    color: black;
+    background-color: var(--red);
+    padding: 1.2rem 2rem;
+    border: 1px solid var(--red);
+    transition: 0.3s ease;
+    margin: 1.4rem 0; 
+}
+
+.newsletter-form__submit:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: 0.3s ease;
 }
 
 /* ---------------------------------- Date sticker ------------------------------------ */
@@ -731,12 +806,8 @@ header p::selection {
     gap: 1rem;
 }
 
-.footer__nav a,
-.disclaimer {
-    display: block;
+.small-letters--gray {
     color: hsl(0, 0%, 70%);
-    font-size: 0.8rem;
-    line-height: 1.4rem;
 }
 
 .footer__nav a:hover {

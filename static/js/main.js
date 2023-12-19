@@ -1,5 +1,6 @@
 (() => {
 const $logoElements = document.querySelectorAll(".logo-gf")
+const $campaignElements = document.querySelectorAll(".campaign-gf")
 const $languageElement = document.querySelector('.language-button')
 const $languagesElement = document.querySelector('.languages')
 const $modalElement = document.querySelector('.modal');
@@ -23,6 +24,9 @@ function changeLogo() {
     $logoElements.forEach(logo => {
         logo.src = `../app/static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
     });
+    $campaignElements.forEach(elem => {
+        elem.style.backgroundImage = `url(../app/static/img/gentse-feesten-logos/campagne-${randomIndex}-${randomLetter}.png)`
+    })
 };
 
 // ---------------- LANGUAGE -----------------------------------------------------------------------------------------------------------------------------

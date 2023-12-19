@@ -1,8 +1,7 @@
 (() => {
-const $logoElements = document.querySelectorAll(".logo-gf")
-const $campaignElements = document.querySelectorAll(".campaign-gf")
+const $logoElements = document.querySelectorAll('.logo-gf')
+const $campaignElements = document.querySelectorAll('.campaign-gf')
 const $languageElement = document.querySelector('.language-button')
-const $languagesElement = document.querySelector('.languages')
 const $modalElement = document.querySelector('.modal');
 const $buttonElement = document.querySelector('.menu-button')
 const $closeModalElement = document.querySelector('.menu-button--close')
@@ -33,7 +32,6 @@ function changeLogo() {
 function generateUIForLanguages () {
     $languageElement.addEventListener('click', () => {
         $languageElement.classList.toggle('language-button--open')
-        $languagesElement.classList.toggle('languages--open')
     });
 };
 

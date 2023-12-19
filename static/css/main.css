@@ -264,7 +264,7 @@ header p::selection {
     z-index: 1;
 }
 
-.languages--open {
+.language-button--open .languages {
     display: block;
 }
 
@@ -534,7 +534,6 @@ header p::selection {
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 10%;
-    transition: 0.3s ease;
 }
 
 /* Banner calendar */
@@ -657,7 +656,6 @@ header p::selection {
         padding: 8rem 3rem;
         background-size: 38rem;
         background-position-y: 58%;
-        transition: 0.3s ease;
     }
     .banner__content {
         max-width: 28rem;
@@ -681,7 +679,6 @@ header p::selection {
     .banner__inner  {
         padding: 5rem 1rem;
         background-size: 32rem;
-        transition: 0.3s ease;
     }
 }
 
@@ -691,13 +688,18 @@ header p::selection {
         background-size: 24rem;
         background-position-y: 4rem;
         background-position-x: center;
-        transition: 0.3s ease;
     }
     .banner__content {
-        padding: 30rem 0;
+        padding: 32rem 0;
         padding-bottom: 0;
         max-width: none;
         transition: 0.3s ease;
+    }
+    .date-cta {
+        left: 1rem;
+    }
+    .date-cta:hover {
+        left: 4rem;
     }
     .date-cta p {
         position: relative;
@@ -839,7 +841,7 @@ a.media__videos:hover {
     max-width: 50%;
     padding: 2rem;
     margin-top: 8rem;
-    background-color: hsla(31, 49%, 81%, 0.8);
+    background-color: hsla(31, 49%, 81%, 0.9);
 }
 
 .small-link {

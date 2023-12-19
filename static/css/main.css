@@ -295,9 +295,11 @@ header p::selection {
     left: 0;
 }
 
-.modal::after {
-    content: '';
-    display: block;
+.modal__inner {
+    padding: 4rem 2.2rem;
+}
+
+.modal__image {
     width: 40vw;
     height: 100vh;
     background-image: url(../img/gentse-feesten-logos/campagne-1-G.png);
@@ -311,13 +313,11 @@ header p::selection {
     z-index: -1;
 }
 
-.modal__inner {
-    padding: 4rem 2.2rem;
-}
-
 .modal-open {
     top: 0;
 }
+
+/* Modal header with logo, languages, search- and close-button */
 
 .modal__header {
     display: flex;
@@ -339,6 +339,8 @@ header p::selection {
 .modal button svg:hover {
     fill: white;
 }
+
+/* Modal navigation with program */
 
 .modal__navigation {
     padding-top: 6rem;
@@ -446,7 +448,7 @@ header p::selection {
     .modal__inner {
         padding: 2.4rem 2.2rem;
     }
-    .modal::after {
+    .modal__image {
         display: none;
     }
 }

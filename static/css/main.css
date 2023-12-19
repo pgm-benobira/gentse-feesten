@@ -163,15 +163,19 @@ header p::selection {
 
 /* Logo */
 
-.logo:hover::after {
+.logo__container:hover::after {
     content: '';
     display: none;
 }
 
-#LOGO-TIJDELIJK {
+.logo__container img {
     padding-right: 3.4rem;
     width: 17rem;
     transition: 0.3s ease;
+}
+
+.logo-gf--black {
+    filter: invert(1);
 }
 
 /* Menu */
@@ -429,7 +433,7 @@ header p::selection {
         padding: 2.4rem 2.2rem;
         transition: 0.3s ease;
     }
-    #LOGO-TIJDELIJK {
+    #logo-gf {
         width: 13rem;
         transition: 0.3s ease;
     }
@@ -489,7 +493,7 @@ header p::selection {
     .modal__program__days {
         left: 11rem;
     }
-    #LOGO-TIJDELIJK {
+    #logo-gf {
         padding-right: 1rem;
     }
 }

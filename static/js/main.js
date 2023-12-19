@@ -1,9 +1,29 @@
 (() => {
+const $logoElements = document.querySelectorAll(".logo-gf")
 const $languageElement = document.querySelector('.language-button')
 const $languagesElement = document.querySelector('.languages')
 const $modalElement = document.querySelector('.modal');
 const $buttonElement = document.querySelector('.menu-button')
 const $closeModalElement = document.querySelector('.menu-button--close')
+
+// ---------------- RANDOM LETTER ------------------------------------------------------------------------------------------------------------------------
+// Array of possible letters for the src attribute
+const possibleLetters = ["G", "E", "N", "T", "S", "E"];
+
+// Get a random letter from the array
+function getRandomIndex(max) {
+    return Math.floor(Math.random() * max) + 1;
+};
+
+function changeLogo() {
+    const amountOfLetters = possibleLetters.length;
+    const randomIndex = getRandomIndex(amountOfLetters);
+    const randomLetter = possibleLetters[randomIndex - 1];
+    console.log(randomLetter);
+    $logoElements.forEach(logo => {
+        logo.src = `../app/static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
+    });
+};
 
 // ---------------- LANGUAGE -----------------------------------------------------------------------------------------------------------------------------
 function generateUIForLanguages () {
@@ -11,7 +31,7 @@ function generateUIForLanguages () {
         $languageElement.classList.toggle('language-button--open')
         $languagesElement.classList.toggle('languages--open')
     });
-}
+};
 
 // ---------------- MENU ---------------------------------------------------------------------------------------------------------------------------------
 function generateUIForMenu () {
@@ -26,6 +46,8 @@ function generateUIForMenu () {
 // ---------------- GENERATE USER INTERFACE --------------------------------------------------------------------------------------------------------------
 // Show the user interface for 'Gentse Feesten'
 function generateUI () {
+    // Change the logo
+    changeLogo();
     // Show the language dropdown
     generateUIForLanguages();
     // Show the menu

@@ -89,6 +89,24 @@ input {
     margin: 0 auto;
 }
 
+/* --------------------------- 📱 General media queries ------------------------------ */
+
+@media (max-width: 80rem) {
+    h2 {
+        font-size: 2.1rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    h2 {
+        font-size: 1.6rem;
+        line-height: 1.7rem;
+    }
+}
+
 /* ══════════════════════════════════════════════════════════════════════════════════════
 ════════════════════════════════════════ HEADER ═════════════════════════════════════════
 ══════════════════════════════════════════════════════════════════════════════════════ */
@@ -168,7 +186,7 @@ header p::selection {
     display: none;
 }
 
-.logo__container img {
+.logo-gf {
     padding-right: 3.4rem;
     width: 17rem;
     transition: 0.3s ease;
@@ -290,7 +308,7 @@ header p::selection {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 2;
     top: 100%;
     left: 0;
 }
@@ -435,7 +453,7 @@ header p::selection {
         padding: 2.4rem 2.2rem;
         transition: 0.3s ease;
     }
-    #logo-gf {
+    .logo-gf {
         width: 13rem;
         transition: 0.3s ease;
     }
@@ -495,8 +513,9 @@ header p::selection {
     .modal__program__days {
         left: 11rem;
     }
-    #logo-gf {
+    .logo-gf {
         padding-right: 1rem;
+        width: 10rem;
     }
 }
 
@@ -511,8 +530,7 @@ header p::selection {
 
 .banner__inner {
     padding: 8rem 6rem;
-    background-image: url(../img/gentse-feesten-logos/campagne-1-G.png);
-    background-size: 45rem;
+    background-size: 43rem;
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 10%;
@@ -661,7 +679,7 @@ header p::selection {
 
 @media (max-width: 64rem) {
     .banner__inner  {
-        padding: 8rem 1rem;
+        padding: 5rem 1rem;
         background-size: 32rem;
         transition: 0.3s ease;
     }
@@ -758,13 +776,15 @@ header p::selection {
     background-repeat: no-repeat;
     background-size: contain;
     width: 8rem;
-    height: 4rem;
+    height: 2.7rem;
+    top: 32%;
 }
 
 .media__inner a span {
     background-color: var(--red);
     position: relative;
     z-index: 1;
+    display: block;
 }
 
 .media__photos span {
@@ -797,14 +817,12 @@ a.media__videos:hover {
 
 .media__photos::before {
     background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
-    top: 2.1rem;
     right: 3rem;
 }
 
 .media__videos::before {
     background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
     transform: rotate(180deg);
-    top: 0.8rem;
     left: 3rem;
 }
 
@@ -818,9 +836,10 @@ a.media__videos:hover {
 }
 
 .banner__content--newsletter {
-    max-width: 39rem;
-    padding-bottom: 0;
-    padding-top: 12rem;
+    max-width: 50%;
+    padding: 2rem;
+    margin-top: 8rem;
+    background-color: hsla(31, 49%, 81%, 0.8);
 }
 
 .small-link {
@@ -968,6 +987,12 @@ a.media__videos:hover {
 /* -------------------------------- 📱 Footer queries ---------------------------------- */
 
 @media (max-width: 80rem) {
+    .media__inner a {
+        font-size: 2.3rem;
+    }
+    .media__inner a::before {
+        top: 26%;
+    }
     .duration--bottom {
         top: -4rem;
     }
@@ -985,6 +1010,19 @@ a.media__videos:hover {
 }
 
 @media (max-width: 48rem) {
+    .banner__content--newsletter {
+        max-width: none;
+        background-color: var(--beige);
+    }
+    .media__inner a {
+        font-size: 1.6rem;
+    }
+    .media__inner a::before {
+        top: 20%;
+    }
+    .newsletter-form__input {
+        font-size: 1rem;
+    }
     .duration--bottom{
         display: block;
         left: calc(50% - 75px);

@@ -34,6 +34,10 @@
 ════════════════════════════════════════ GENERAL ════════════════════════════════════════
 ══════════════════════════════════════════════════════════════════════════════════════ */
 
+*::selection {
+    background-color: white;
+}
+
 body {
     font-family: 'Fira Sans';
     background: black;
@@ -131,7 +135,6 @@ header a:focus {
 header a::selection,
 header p::selection {
     color: black;
-    background-color: white;
 }
 
 .menu__link {
@@ -187,9 +190,12 @@ header p::selection {
 }
 
 .logo-gf {
-    padding-right: 3.4rem;
-    width: 17rem;
+    width: 13.5rem;
     transition: 0.3s ease;
+}
+
+.logo-gf::selection {
+    background: none;
 }
 
 .logo-gf--black {
@@ -197,6 +203,10 @@ header p::selection {
 }
 
 /* Menu */
+
+.menu__wrapper {
+    padding-left: 3.4rem;
+}
 
 .menu {
     display: flex;
@@ -376,6 +386,27 @@ header p::selection {
     color: white;
 }
 
+.modal .language--active {
+    color: black;
+}
+
+.modal .language--active:hover {
+    color: white;
+}
+
+.modal .language--active::after {
+    filter: invert(1);
+}
+
+.modal .language--active:hover::after {
+    background-image: url(../img/gentse-feesten-icoontjes/chevron-down.svg);
+    filter: invert(0);
+}
+
+.modal .languages {
+    color: white;
+}
+
 .modal__program__container {
     position: relative;
 }
@@ -413,16 +444,22 @@ header p::selection {
 .duration {
     position: absolute;
     background-color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 11rem;
     height: 11rem;
     border-radius: 50%;
     color: black;
     font-size: 1.8rem;
-    line-height: 6;
     font-weight: 600;
     text-align: center;
     text-transform: none;
     transition: 0.3s ease;
+}
+
+.duration span::selection {
+    color: black;
 }
 
 .duration--top {
@@ -454,7 +491,7 @@ header p::selection {
         transition: 0.3s ease;
     }
     .logo-gf {
-        width: 13rem;
+        width: 9.5rem;
         transition: 0.3s ease;
     }
     .duration {
@@ -837,6 +874,10 @@ a.media__videos:hover {
     line-height: 1.4rem;
 }
 
+.small-letters::selection {
+    color: black;
+}
+
 .banner__content--newsletter {
     max-width: 50%;
     padding: 2rem;
@@ -928,6 +969,10 @@ a.media__videos:hover {
     color: white;
     font-weight: 600;
     padding-top: 6rem;
+}
+
+.hashtag::selection {
+    color: black;
 }
 
 .footer__nav {

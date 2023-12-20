@@ -142,24 +142,25 @@ header p::selection {
 }
 
 .menu__link--active::after,
+.menu__link--active::before,
 .menu__link:hover::after,
 .accessibility:hover::after {
     content: '';
     display: block;
     position: absolute;
-    width: 1.6rem;
-    height: 0.2rem;
     background-color: white;
+}
+
+.menu__link--active::after,
+.menu__link:hover::after,
+.accessibility:hover::after {
+    height: 0.2rem;
+    width: 1.6rem;
     margin-top: 1rem;
 }
 
 .menu__link--active::before {
-    content: '';
-    display: block;
-    position: absolute;
     width: 1rem;
-    height: 0.2rem;
-    background-color: white;
     top: 2.77rem;
     left: -0.5rem;
     transform: rotate(90deg);
@@ -386,6 +387,8 @@ header p::selection {
     color: white;
 }
 
+/* Modal language button */
+
 .modal .language--active {
     color: black;
 }
@@ -406,6 +409,8 @@ header p::selection {
 .modal .languages {
     color: white;
 }
+
+/* Modal program */
 
 .modal__program__container {
     position: relative;
@@ -470,9 +475,7 @@ header p::selection {
 /* ----------------------------- 📱 Header media queries ------------------------------- */
 
 @media (max-width: 80rem) {
-    .menu {
-        display: none;
-    }
+    .menu,
     .accessibility {
         display: none;
     }
@@ -509,24 +512,18 @@ header p::selection {
 }
 
 @media (max-width: 48rem) {
-    .header__inner {
+    .header__inner,
+    .modal__inner {
         padding: 1.3rem 1.3rem;
         transition: 0.3s ease;
     }
-    .language-button {
+    .language-button,
+    .search-button,
+    .duration {
         display: none;
     }
     .mobile-navigation {
         gap: 0;
-    }
-    .search-button {
-        display: none;
-    }
-    .duration {
-        display: none;
-    }
-    .modal__inner {
-        padding: 1.3rem 1.3rem;
     }
     .modal__navigation {
         padding-top: 3rem;
@@ -812,6 +809,7 @@ header p::selection {
     content: '';
     display: block;
     position: absolute;
+    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 8rem;
@@ -855,12 +853,10 @@ a.media__videos:hover {
 }
 
 .media__photos::before {
-    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
     right: 3rem;
 }
 
 .media__videos::before {
-    background-image: url(../img/gentse-feesten-icoontjes/arrow-right-extra-long.svg);
     transform: rotate(180deg);
     left: 3rem;
 }
@@ -869,12 +865,12 @@ a.media__videos:hover {
 
 .small-letters {
     display: block;
-    color: black;
     font-size: 0.77rem;
     line-height: 1.4rem;
 }
 
-.small-letters::selection {
+.small-letters::selection,
+.small-link:hover {
     color: black;
 }
 
@@ -888,10 +884,6 @@ a.media__videos:hover {
 .small-link {
     color: var(--red);
     text-decoration: underline;
-}
-
-.small-link:hover {
-    color: black;
 }
 
 /* Newsletter form */
@@ -947,16 +939,18 @@ a.media__videos:hover {
     background-color: black;
 }
 
-.big-footer {
+.big-footer,
+.small-footer {
     display: flex;
     justify-content: space-between;
+}
+
+.big-footer {
     gap: 1rem;
     padding-bottom: 4rem;
 }
 
 .small-footer {
-    display: flex;
-    justify-content: space-between;
     gap: 2rem;
 }
 
@@ -1078,16 +1072,14 @@ a.media__videos:hover {
     .big-footer {
         display: block;
     }
-    .footer__left {
+    .footer__left,
+    .socials {
         padding-bottom: 3rem;
     }
     .hashtag {
         padding-top: 3rem;
         font-size: 2rem;
         line-height: 2rem;
-    }
-    .socials {
-        padding-bottom: 3rem;
     }
     .footer__right ul {
         justify-content: flex-start;

@@ -702,6 +702,49 @@ header p::selection {
     padding-bottom: 1rem;
 }
 
+/* Teasers navigation */
+
+.teasers__navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    padding-bottom: 1rem;
+}
+
+.nav-arrow {
+    max-width: 8rem;
+    width: 100%;
+    filter: invert(1);
+    overflow: hidden;
+}
+
+.nav-arrow--left {
+    position: relative;
+    transform: rotate(180deg);
+    opacity: 70%;
+    left: 3rem;
+    transition: 0.2s ease;
+}
+
+.nav-arrow--right {
+    position: relative;
+    right: 3rem;
+    transition: 0.2s ease;
+}
+
+.nav-arrow svg:hover {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.nav-arrow--left:hover {
+    left: 0;
+}
+
+.nav-arrow--right:hover {
+    right: 0;
+}
+
 /* Event teaser */
 
 .teaser__wrapper {

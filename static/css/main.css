@@ -112,6 +112,9 @@ input {
     p {
         font-size: 1rem;
     }
+    h3 {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 48rem) {
@@ -824,6 +827,7 @@ header p::selection {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .teaser__location {
@@ -855,6 +859,14 @@ header p::selection {
     }
     .calendar__date {
         font-size: 1rem;
+    }
+    .segment__content--teasers {
+        max-width: none;
+        padding: 0 1rem;
+        transition: 0.3s ease;
+    }
+    .teaser__wrapper {
+        max-width: 25rem;
     }
 }
 
@@ -914,6 +926,20 @@ header p::selection {
     }
     .calendar__day {
         font-size: 1.4rem;
+    }
+    .segment__content--teasers {
+        padding: 4rem 1rem;
+        white-space: normal;
+        overflow: visible;
+    }
+    .teasers__navigation {
+        display: none;
+    }
+    .teaser__wrapper {
+        max-width: none;
+    }
+    .teaser {
+        width: 85%;
     }
 }
 

@@ -319,6 +319,11 @@ header p::selection {
     width: 1.2rem;
 }
 
+.search-button:hover {
+    fill: var(--red);
+    cursor: pointer;
+}
+
 /* Hamburger menu */
 
 .menu-button__wrapper {
@@ -382,6 +387,10 @@ header p::selection {
 }
 
 .modal button svg:hover {
+    fill: white;
+}
+
+.modal .search-button:hover {
     fill: white;
 }
 

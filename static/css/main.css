@@ -837,7 +837,8 @@ header p::selection {
     max-width: none;
     position: relative;
     padding-bottom: 0;
-    padding-top: 10rem;
+    padding-top: 0;
+    margin-top: 10rem;
 }
 
 /* News special title */
@@ -981,12 +982,48 @@ header p::selection {
     .teaser__wrapper {
         max-width: 25rem;
     }
+    .segment__content--news {
+        max-width: none;
+        padding: 0;
+    }
+    .news__title__wrapper {
+        left: -5rem;
+    }
+    .news__title {
+        font-size: 6rem;
+    }
+    .news__grid__wrapper {
+        left: 0;
+        width: 80%;
+        margin-left: auto;
+    }
+    .news__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+    .news-item--1 { grid-area: 1 / 1 / 2 / 2; }
+    .news-item--2 { grid-area: 1 / 2 / 2 / 3; }
+    .news-item--3 { grid-area: 2 / 1 / 3 / 3; }
+    .news-item--4 { grid-area: 3 / 1 / 4 / 3; }
+    .news-photo img {
+        aspect-ratio: 4 / 1;
+        width: 100%;
+    }
+    .news-item {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
 }
 
 @media (max-width: 64rem) {
     .segment__inner  {
         padding: 5rem 1rem;
         background-size: 32rem;
+    }
+    .news-photo img {
+        aspect-ratio: 3 / 1;
+        width: 100%;
     }
 }
 
@@ -1053,6 +1090,46 @@ header p::selection {
     }
     .teaser {
         width: 85%;
+    }
+    .segment__content--news {
+        margin-top: 0;
+        padding: 4rem 1rem;
+    }
+    .news__title__wrapper {
+        position: static;
+        transform: rotate(0deg);
+    }
+    .news__title {
+        font-size: 4rem;
+    }
+    .news__title::before {
+        width: 100%;
+        height: 100%;
+        top: -2rem;
+        left: 1rem;
+    }
+    .news__grid__wrapper {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 3rem;
+    }
+    .news__grid {
+        display: block;
+    }
+    .news-item {
+        gap: 3rem;
+    }
+    .news-item--3 .arrow {
+        margin: 0;
+    }
+}
+
+@media (max-width: 22rem) {
+    .news-photo img {
+        aspect-ratio: 1 / 1;
+    }
+    .news__button {
+        text-align: center;
     }
 }
 

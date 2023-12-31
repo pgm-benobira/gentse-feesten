@@ -1067,9 +1067,58 @@ header p::selection {
     border-color: red;
 }
 
+/* ---------------------------------- Search page ------------------------------------- */
+
+.search-bar__container {
+    display: flex;
+    position: relative;
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+.search-bar,
+.search-bar__button {
+    all: unset;
+    border: 1px solid white;
+}
+
+.search-bar {
+    border-right: none;
+    width: 100%;
+    padding: 1rem;
+}
+
+.search-bar:focus {
+    outline: 2px solid white;
+    outline-offset: -2px;
+}
+
+.search-bar::placeholder {
+    color: white;
+}
+
+.search-bar__button {
+    border-left: none;
+    padding: 1rem 1.4rem;
+    transition: 0.3s ease;
+}
+
+.search-bar__button:hover {
+    background-color: white;
+    transition: 0.3s ease;
+}
+
+.search-bar__button:hover svg {
+    fill: black;
+    transition: 0.3s ease;
+}
+
 /* ----------------------------- 📱 Main media queries -------------------------------- */
 
 @media (max-width: 80rem) {
+    /* All pages */
     .segment__inner  {
         padding: 8rem 3rem;
         background-size: 38rem;
@@ -1079,6 +1128,8 @@ header p::selection {
         max-width: 28rem;
         transition: 0.3s ease;
     }
+
+    /* Home page */
     .date-cta p {
         position: relative;
         right: 2rem;
@@ -1109,6 +1160,8 @@ header p::selection {
     .news__title {
         font-size: 6rem;
     }
+
+    /* Home and news page */
     .news__grid__wrapper {
         left: 0;
         width: 80%;
@@ -1131,6 +1184,8 @@ header p::selection {
         font-size: 1.2rem;
         line-height: 1.6rem;
     }
+
+    /* News page */
     .segment__inner--newspage {
         padding: 0rem 2.2rem;
         padding-bottom: 10rem;
@@ -1138,10 +1193,13 @@ header p::selection {
 }
 
 @media (max-width: 64rem) {
+    /* All pages */
     .segment__inner  {
         padding: 5rem 1rem;
         background-size: 32rem;
     }
+
+    /* News page */
     .news-photo img {
         aspect-ratio: 3 / 1;
         width: 100%;
@@ -1159,6 +1217,7 @@ header p::selection {
 }
 
 @media (max-width: 48rem) {
+    /* Home page */
     .segment__inner  {
         padding: 0;
         background-size: 24rem;
@@ -1222,6 +1281,8 @@ header p::selection {
     .teaser {
         width: 85%;
     }
+
+    /* News page */
     .segment__content--news {
         margin-top: 0;
         padding: 4rem 1rem;
@@ -1274,9 +1335,18 @@ header p::selection {
         width: 3rem;
         height: 3rem;
     }
+
+    /* Search page */
+    .search-bar__container {
+        margin-top: 4rem;
+    }
+    .search-bar__button svg {
+        display: block;
+    }
 }
 
 @media (max-width: 22rem) {
+    /* News page */
     .news-photo img {
         aspect-ratio: 1 / 1;
     }

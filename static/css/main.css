@@ -1115,6 +1115,43 @@ header p::selection {
     transition: 0.3s ease;
 }
 
+/* ----------------------------------- Day page -------------------------------------- */
+
+.calendar-links__wrapper {
+    margin: 0 auto;
+    max-width: 86rem;
+    padding: 0 2.2rem;
+    padding-bottom: 4rem;
+}
+
+.calendar-links--header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.calendar-links--header .calendar-link {
+    width: 9%;
+    flex-grow: 1;
+}
+
+.calendar-links--header a {
+    color: black;
+}
+
+.calendar-link--active a {
+    padding: 2.6rem 0;
+}
+
+.calendar-link--active a:hover {
+    background-color: var(--red);
+}
+
+.calendar-links--header .calendar__date {
+    font-weight: 400;
+}
+
 /* ----------------------------- 📱 Main media queries -------------------------------- */
 
 @media (max-width: 80rem) {
@@ -1189,6 +1226,23 @@ header p::selection {
     .segment__inner--newspage {
         padding: 0rem 2.2rem;
         padding-bottom: 10rem;
+    }
+
+    /* Day page */
+    .calendar-links__wrapper {
+        margin: 0 auto;
+        max-width: 47rem;
+    }
+    .calendar-links--header .calendar-link {
+        width: 19%;
+    }
+    .calendar-link--active a {
+        padding: 1.4rem 0;
+        background-color: white;
+    }
+    .calendar-link--active a:hover {
+        background-color: white;
+        color: var(--red);
     }
 }
 
@@ -1342,6 +1396,15 @@ header p::selection {
     }
     .search-bar__button svg {
         display: block;
+    }
+
+    /* Day page */
+    .calendar-links__wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .calendar-links--header {
+        display: flex;
     }
 }
 

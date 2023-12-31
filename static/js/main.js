@@ -21,10 +21,10 @@ function changeLogo() {
     const randomLetter = possibleLetters[randomIndex - 1];
     console.log(randomLetter);
     $logoElements.forEach(logo => {
-        logo.src = `../app/static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
+        logo.src = `/Users/benoit/Desktop/Artevelde/2023-24/S1/Kwartaal%202/@Work%201/atwork-1_project_2_biraguma_benoit/app/static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
     });
     $campaignElements.forEach(elem => {
-        elem.style.backgroundImage = `url(../app/static/img/gentse-feesten-logos/campagne-${randomIndex}-${randomLetter}.png)`
+        elem.style.backgroundImage = `url(/Users/benoit/Desktop/Artevelde/2023-24/S1/Kwartaal%202/@Work%201/atwork-1_project_2_biraguma_benoit/app/static/img/gentse-feesten-logos/campagne-${randomIndex}-${randomLetter}.png)`
     })
 };
 

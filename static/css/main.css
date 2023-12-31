@@ -115,6 +115,9 @@ input {
 /* --------------------------- 📱 General media queries ------------------------------ */
 
 @media (max-width: 80rem) {
+    h1 {
+        font-size: 3rem;
+    }
     h2 {
         font-size: 2.1rem;
     }
@@ -127,6 +130,10 @@ input {
 }
 
 @media (max-width: 48rem) {
+    h1 {
+        font-size: 2.4rem;
+        line-height: 2.5rem;
+    }
     h2 {
         font-size: 1.6rem;
         line-height: 1.7rem;
@@ -1008,7 +1015,8 @@ header p::selection {
 }
 
 .news-item__right {
-    max-width: 48rem;
+    max-width: 70%;
+    width: 100%;
     filter: brightness(0.8);
 }
 
@@ -1117,6 +1125,10 @@ header p::selection {
         font-size: 1.2rem;
         line-height: 1.6rem;
     }
+    .segment__inner--newspage {
+        padding: 0rem 2.2rem;
+        padding-bottom: 10rem;
+    }
 }
 
 @media (max-width: 64rem) {
@@ -1127,6 +1139,13 @@ header p::selection {
     .news-photo img {
         aspect-ratio: 3 / 1;
         width: 100%;
+    }
+    .segment__inner--newspage {
+        padding: 0rem 2.2rem;
+        padding-bottom: 8rem;
+    }
+    .news-item__right {
+        max-width: 50%;
     }
 }
 
@@ -1224,6 +1243,26 @@ header p::selection {
     }
     .news-item--3 .arrow {
         margin: 0;
+    }
+    .segment__inner--newspage {
+        padding: 0rem 2.2rem;
+        padding-bottom: 6rem;
+    }
+    .news-item--larger {
+        margin: 2rem auto;
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+    .news-item__left {
+        gap: 2rem;
+    }
+    .news-item__right {
+        max-width: none;
+    }
+    .page-button {
+        font-size: 1.6rem;
+        width: 3rem;
+        height: 3rem;
     }
 }
 

@@ -1101,7 +1101,7 @@ header p::selection {
 
 .search-bar__button {
     border-left: none;
-    padding: 1rem 1.4rem;
+    padding: 0.6rem 1.2rem;
     transition: 0.3s ease;
 }
 
@@ -1116,6 +1116,8 @@ header p::selection {
 }
 
 /* ----------------------------------- Day page -------------------------------------- */
+
+/* Compact header calendar */
 
 .calendar-links__wrapper {
     margin: 0 auto;
@@ -1150,6 +1152,49 @@ header p::selection {
 
 .calendar-links--header .calendar__date {
     font-weight: 400;
+}
+
+/* Other activities */
+
+.other-activities {
+    display: flex;
+}
+
+.other-activities__search {
+    width: 100%;
+    padding: 0 6rem;
+    background-color: var(--red);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.search-bar__container--white {
+    margin: 0;
+    max-width: none;
+    margin-top: 1.5rem;
+    background-color: white;
+}
+
+.search-bar__container--white .search-bar:focus {
+    outline-color: black;
+}
+
+.search-bar__container--white .search-bar::placeholder {
+    color: hsl(0, 0%, 30%);
+}
+
+.search-bar__container--white .search-bar__button svg {
+    fill: black;
+}
+
+.search-bar__container--white .search-bar__button:hover {
+    background-color: black;
+}
+
+.search-bar__container--white .search-bar__button:hover svg {
+    fill: white;
 }
 
 /* ----------------------------- 📱 Main media queries -------------------------------- */
@@ -1243,6 +1288,13 @@ header p::selection {
     .calendar-link--active a:hover {
         background-color: white;
         color: var(--red);
+    }
+    .other-activities__img {
+        max-width: 30%;
+        object-fit: cover;
+    }
+    .other-activities__search {
+        padding: 2rem 4rem;
     }
 }
 
@@ -1406,6 +1458,21 @@ header p::selection {
     .calendar-links--header {
         display: flex;
     }
+    .other-activities {
+        display: block;
+    }
+    .search-bar__container--white {
+        margin-top: 1.5rem;
+    }
+    .other-activities__img {
+        aspect-ratio: 2 / 1;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .other-activities__search {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 22rem) {
@@ -1415,6 +1482,11 @@ header p::selection {
     }
     .news__button {
         text-align: center;
+    }
+
+    /* Day page */
+    .other-activities__search {
+        padding: 1rem;
     }
 }
 

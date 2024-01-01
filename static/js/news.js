@@ -39,7 +39,7 @@ function renderNewsItem($newsItems, item) {
                 </div>
             </div>
             <div class="news-item__right">
-                <img src="${item.picture.medium}">
+                <img src="${item.picture.medium}" alt="nieuws-sfeerbeeld">
             </div>
         </a>
         `;

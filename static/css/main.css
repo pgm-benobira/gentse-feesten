@@ -157,7 +157,8 @@ header a {
 
 header a:focus {
     outline: 2px solid #fff;
-    outline-offset: 0.7rem;
+    outline-offset: 0.4rem;
+    position: relative;
     z-index: 3;
 }
 

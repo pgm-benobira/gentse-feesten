@@ -1233,7 +1233,7 @@ header p::selection {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    max-height: 32rem;
+    max-height: 30rem;
 }
 
 .categories li {
@@ -1473,6 +1473,12 @@ header p::selection {
     .filter--box {
         width: 100%;
         justify-content: center;
+    }
+    .categories {
+        max-height: 42rem;
+    }
+    .categories li {
+        width: 50%;
     }
 }
 

@@ -47,7 +47,8 @@ h1 {
     font-size: 4.2rem;
 }
 
-h1::selection {
+h1::selection,
+h2::selection {
     background-color: white;
     color: black;
 }
@@ -1287,6 +1288,52 @@ header p::selection {
 }
 
 .search-bar__container--beige .search-bar__button:hover svg {
+    fill: black;
+}
+
+/* List/raster buttons */
+
+.event-view {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2rem;
+}
+
+.raster,
+.list {
+    all: unset;
+    display: block;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: black;
+}
+
+.raster:hover,
+.list:hover {
+    background-color: var(--red);
+}
+
+.raster svg,
+.list svg {
+    fill: white;
+    width: 100%;
+    padding: 1.2rem;
+}
+
+.raster:hover svg,
+.list:hover svg {
+    fill: black;
+}
+
+.list svg {
+    padding: 1.2rem 1rem;
+}
+
+.event-view--active {
+    background-color: var(--red);
+}
+
+.event-view--active svg {
     fill: black;
 }
 

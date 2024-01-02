@@ -1155,6 +1155,135 @@ header p::selection {
     font-weight: 400;
 }
 
+/* Filter section */
+
+.filters__container {
+    padding-bottom: 2rem;
+}
+
+.filters {
+    display: flex;
+    border: 1px solid var(--beige);
+}
+
+.filters li {
+    display: flex;
+    align-items: center;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    color: var(--beige);
+    padding: 1rem;
+    border-right: 1px solid var(--beige);
+    transition: 0.3s ease;
+}
+
+.filter--box:hover {
+    background-color: var(--beige);
+    color: black;
+    transition: 0.3s ease;
+}
+
+.filter svg {
+    width: 1rem;
+    transition: 0.3s ease;
+}
+
+.filter--box:hover svg {
+    fill: black;
+    transition: 0.3s ease;
+}
+
+.filter--active {
+    color: black;
+    background-color: var(--beige);
+}
+
+.filter--checkbox {
+    border: none;
+}
+
+.filter--checkbox::before {
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid var(--beige);
+}
+
+.filter--checkbox:hover::before {
+    background-color: var(--beige);
+}
+
+.categories {
+    background-color: var(--beige);
+    padding: 3rem;
+    padding-bottom: 1.4rem;
+    padding-right: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height: 30rem;
+}
+
+.categories li {
+    width: calc(100% / 3);
+}
+
+.category {
+    font-size: 1.3rem;
+    color: black;
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1.6rem;
+    margin-right: 1.6rem;
+}
+
+.category:hover {
+    text-decoration: underline;
+}
+
+.category::before {
+    content: '';
+    display: block;
+    max-width: 1.4rem;
+    width: 100%;
+    height: 1.4rem;
+    background-image: url(../img/gentse-feesten-icoontjes/tag.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0.4rem;
+}
+
+.search-bar__container--beige {
+    margin: 0;
+    max-width: 50%;
+}
+
+.search-bar__container--beige > * {
+    border-color: var(--beige);
+}
+
+.search-bar__container--beige .search-bar::placeholder {
+    color: var(--beige);
+}
+
+.search-bar__container--beige .search-bar__button svg {
+    fill: var(--beige);
+}
+
+.search-bar__container--beige .search-bar__button:hover {
+    background-color: var(--beige);
+}
+
+.search-bar__container--beige .search-bar__button:hover svg {
+    fill: black;
+}
+
 /* Other activities */
 
 .other-activities {

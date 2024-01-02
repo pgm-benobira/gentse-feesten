@@ -564,7 +564,7 @@ header p::selection {
 @media (max-width: 48rem) {
     .header__inner,
     .modal__inner {
-        padding: 1.3rem 1.3rem;
+        padding: 1.3rem 1rem;
         transition: 0.3s ease;
     }
     .language-button,
@@ -1491,10 +1491,11 @@ header p::selection {
         transition: 0.3s ease;
     }
     .date-cta {
-        left: 1rem;
+        width: 12rem;
+        left: 4rem;
     }
     .date-cta:hover {
-        left: 4rem;
+        width: 16rem;
     }
     .date-cta p {
         position: relative;
@@ -1575,7 +1576,7 @@ header p::selection {
         margin: 0;
     }
     .segment__inner--newspage {
-        padding: 0rem 2.2rem;
+        padding: 0rem 1rem;
         padding-bottom: 6rem;
     }
     .news-item--larger {
@@ -1963,9 +1964,11 @@ a.media__videos:hover {
     .segment__content--newsletter {
         max-width: none;
         background-color: var(--beige);
+        padding: 2rem 1rem;
+        margin-top: 6rem;
     }
     .segment__content--media {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
     .segment__content--media a {
         font-size: 1.6rem;
@@ -1980,6 +1983,9 @@ a.media__videos:hover {
         display: block;
         left: calc(50% - 75px);
         transition: 0.3s ease;
+    }
+    .footer__inner {
+        padding: 8rem 1rem 2rem;
     }
     .big-footer {
         display: block;

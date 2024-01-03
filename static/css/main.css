@@ -608,7 +608,10 @@ header p::selection {
 ═════════════════════════════════════════ MAIN ══════════════════════════════════════════
 ══════════════════════════════════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════ INDEX.HTML ════════════════════════════════════ */
+
 /* ----------------------------------- Home banner ------------------------------------ */
+
 .segment {
     background-color: var(--beige);
 }
@@ -985,7 +988,7 @@ header p::selection {
     transition: 0.3s ease;
 }
 
-/* ----------------------------------- News page -------------------------------------- */
+/* ═══════════════════════════════════ NEWS.HTML ═════════════════════════════════════ */
 
 .segment__inner--newspage {
     padding: 0rem 2.2rem;
@@ -995,7 +998,6 @@ header p::selection {
 .segment__content--newspage {
     margin: 0;
     max-width: none;
-    /* padding: 0; */
 }
 
 .news-item--larger {
@@ -1069,7 +1071,7 @@ header p::selection {
     border-color: red;
 }
 
-/* ---------------------------------- Search page ------------------------------------- */
+/* ══════════════════════════════════ SEARCH.HTML ═════════════════════════════════════ */
 
 .search-bar__container {
     display: flex;
@@ -1117,9 +1119,9 @@ header p::selection {
     transition: 0.3s ease;
 }
 
-/* ----------------------------------- Day page -------------------------------------- */
+/* ═══════════════════════════════════ DAY.HTML ═════════════════════════════════════ */
 
-/* Compact header calendar */
+/* ---------------------------- Compact header calendar ----------------------------- */
 
 .calendar-links__wrapper {
     margin: 0 auto;
@@ -1156,7 +1158,9 @@ header p::selection {
     font-weight: 400;
 }
 
-/* Filter section */
+/* ------------------------------- Filter section --------------------------------- */
+
+/* All filters */
 
 .filters__container {
     padding-bottom: 2rem;
@@ -1226,6 +1230,8 @@ header p::selection {
     background-color: var(--beige);
 }
 
+/* Filter: all categories */
+
 .categories {
     background-color: var(--beige);
     padding: 3rem;
@@ -1266,6 +1272,8 @@ header p::selection {
     margin-top: 0.2rem;
 }
 
+/* Filter: searchbar */
+
 .search-bar__container--beige {
     margin: 0;
     max-width: 50%;
@@ -1290,6 +1298,8 @@ header p::selection {
 .search-bar__container--beige .search-bar__button:hover svg {
     fill: black;
 }
+
+/* -------------------------------- Filtered events ----------------------------------- */
 
 /* List/raster buttons */
 
@@ -1337,7 +1347,9 @@ header p::selection {
     fill: black;
 }
 
-/* Other activities */
+/* Events */
+
+/* ------------------------------- Other activities ---------------------------------- */
 
 .other-activities {
     display: flex;

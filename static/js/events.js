@@ -51,7 +51,7 @@ function generateHTMLForEvents(items, category) {
 
     // HTML for teasers in one category
     const teasersHTML = categoryItems.map((item) => `
-    <div class="teaser__wrapper">
+    <a href="day.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
         <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
         <img class="teaser__img" src="${item.image ? item.image.thumb : ''}" alt="">
         <div class="teaser">
@@ -61,7 +61,7 @@ function generateHTMLForEvents(items, category) {
                 <p>${item.start} u.</p>
             </div>
         </div>
-    </div>
+    </a>
     `)
 
     // HTML for the entire category

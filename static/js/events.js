@@ -18,10 +18,10 @@ function changeEventsView() {
     });
 };
 
-// ---------------- API URL ------------------------------------------------------------------------------------------------------------------------------
+// ---------------- API URL -------------------------------------------------------------------------------------------------------------------------------
 const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events.json';
 
-// ---------------- FETCH THE DATA -----------------------------------------------------------------------------------------------------------------------
+// ---------------- FETCH THE DATA ------------------------------------------------------------------------------------------------------------------------
 async function fetchData(url, callback) {
     try {
         const response = await fetch(url);
@@ -51,7 +51,7 @@ function generateHTMLForEvents(items, category) {
 
     // HTML for teasers in one category
     const teasersHTML = categoryItems.map((item) => `
-    <a href="day.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
+    <a href="detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
         <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
         <img class="teaser__img" src="${item.image ? item.image.thumb : ''}" alt="">
         <div class="teaser">
@@ -108,6 +108,20 @@ function activeCalendarLink(selectedDay) {
     }
 };
 
+// ---------------- UPDATE PAGE TITLE ---------------------------------------------------------------------------------------------------------------------
+// function getDayOfTheWeek(selectedDay) {
+//     days = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag']
+//     const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date
+//     let day = days[d.getDay()]; // Returns number between 0 and 6 => days array to turn it into a readable day
+// }
+
+function updatePageTitle(selectedDay) {
+    days = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']
+    const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date
+    let day = days[d.getDay()]; // Returns number between 0 and 6 => days array to turn it into a readable day
+    document.title = `${day} ${selectedDay} juli | Gentse Feesten 2023`
+}
+
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
 function initialize () {
@@ -118,6 +132,7 @@ function initialize () {
     fetchData(api, data => {
         renderEvents(data);
         activeCalendarLink(selectedDay);
+        updatePageTitle(selectedDay);
     });
     console.log(selectedDay);
 };

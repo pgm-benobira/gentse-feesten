@@ -109,12 +109,6 @@ function activeCalendarLink(selectedDay) {
 };
 
 // ---------------- UPDATE PAGE TITLE ---------------------------------------------------------------------------------------------------------------------
-// function getDayOfTheWeek(selectedDay) {
-//     days = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag']
-//     const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date
-//     let day = days[d.getDay()]; // Returns number between 0 and 6 => days array to turn it into a readable day
-// }
-
 function updatePageTitle(selectedDay) {
     days = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']
     const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date

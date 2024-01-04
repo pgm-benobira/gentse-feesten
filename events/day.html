@@ -97,7 +97,7 @@
             </article>
         </div>
         <nav class="calendar-links__wrapper">
-            <ul class="calendar-links calendar-links--header">
+            <ul class="calendar-links calendar-links--header" id="calendar-links">
                 <li class="calendar-link calendar-link--active"><a href="./day.html?day=14"><p class="calendar__day">Vr</p><p class="calendar__date">14 juli</p></a></li>
                 <li class="calendar-link"><a href="./day.html?day=15"><p class="calendar__day">Za</p><p class="calendar__date">15 juli</p></a></li>
                 <li class="calendar-link"><a href="./day.html?day=16"><p class="calendar__day">Zo</p><p class="calendar__date">16 juli</p></a></li>
@@ -116,7 +116,7 @@
             <article class="segment segment--dark">
                 <div class="segment__inner segment__inner--newspage">
                     <section class="filters__container">
-                        <h2>Filter</h2>
+                        <h2 id="filters">Filter</h2>
                         <div class="filters">
                             <div class="filters__main">
                                 <a class="filter filter--box" href="#"><svg fill="#e6cfb7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M14.2 29.77c.69.5 1.35.1 2.01-.34 4.06-2.71 7.75-5.77 10.13-10.16A12.9 12.9 0 0 0 15.01.03C7.86-.51.65 6.81 2.24 15.09 3.6 22.18 8.93 25.94 14.2 29.77ZM8.77 5.9c3.01-2.64 6.47-3.12 10.17-1.58 3.92 1.62 5.69 4.7 5.83 9.34-.04 3.48-5.32 10.73-9.08 11.94-.36.11-.91.16-1.17-.04-3.52-2.64-7.11-5.26-8.55-9.71-1.26-3.9-.22-7.28 2.8-9.94Z"/><path d="M14.98 17.69c2.46.05 4.74-2.02 4.79-4.34.05-2.33-2.24-4.58-4.66-4.58a4.52 4.52 0 0 0-4.54 4.6 4.4 4.4 0 0 0 4.41 4.32Zm.26-5.52c.5.03.9.44.97 1.01.09.83-.48 1-1.11 1.09-.56-.07-.95-.31-.93-.95.02-.71.39-1.19 1.08-1.16Z" class="cls-2"/></svg><span>Feestpleinen</span></a>
@@ -139,11 +139,13 @@
                             <button class="search-bar__button" type="submit"><svg fill="#fff" class="search-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path  d="m31.47 28.95-6.04-6.02a14.22 14.22 0 1 0-2.5 2.5l6.02 6.05a1.77 1.77 0 0 0 2.52 0 1.77 1.77 0 0 0 0-2.53zM3.55 14.22a10.66 10.66 0 1 1 21.32 0 10.66 10.66 0 0 1-21.32 0z"/></svg></button>
                         </div>
                     </section>
-                    <section class="event-view">
-                        <button class="raster event-view--active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M0 28a4 4 0 0 0 8 0 4 4 0 0 0-8 0m4-16a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm24-4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM0 4a4 4 0 0 0 8 0 4 4 0 0 0-8 0m28 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-16 4a4 4 0 0 0 8 0 4 4 0 0 0-8 0m0-24a4 4 0 0 0 8 0 4 4 0 0 0-8 0m4 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg></button>
-                        <button class="list"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 32"><path d="M13.74 5.05h29.2a2.53 2.53 0 0 0 0-5.05h-29.2a2.53 2.53 0 1 0 0 5.05zm29.2 8.42h-29.2a2.53 2.53 0 1 0 0 5.06h29.2a2.53 2.53 0 0 0 0-5.06zm0 13.48h-29.2a2.53 2.53 0 0 0 0 5.05h29.2a2.53 2.53 0 0 0 0-5.05zM2.53 0H2.5a2.53 2.53 0 1 0 .02 0zm0 13.47H2.5a2.53 2.53 0 1 0 .02 0zm0 13.48H2.5c-1.4 0-2.51 1.13-2.51 2.52S1.14 32 2.54 32a2.52 2.52 0 1 0 0-5.05z"/></svg></button>
+                    <section class="event-view" id="event-view">
+                        <button class="event-view__button raster event-view--active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M0 28a4 4 0 0 0 8 0 4 4 0 0 0-8 0m4-16a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm24-4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM0 4a4 4 0 0 0 8 0 4 4 0 0 0-8 0m28 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm-16 4a4 4 0 0 0 8 0 4 4 0 0 0-8 0m0-24a4 4 0 0 0 8 0 4 4 0 0 0-8 0m4 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/></svg></button>
+                        <button class="event-view__button list"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 32"><path d="M13.74 5.05h29.2a2.53 2.53 0 0 0 0-5.05h-29.2a2.53 2.53 0 1 0 0 5.05zm29.2 8.42h-29.2a2.53 2.53 0 1 0 0 5.06h29.2a2.53 2.53 0 0 0 0-5.06zm0 13.48h-29.2a2.53 2.53 0 0 0 0 5.05h29.2a2.53 2.53 0 0 0 0-5.05zM2.53 0H2.5a2.53 2.53 0 1 0 .02 0zm0 13.47H2.5a2.53 2.53 0 1 0 .02 0zm0 13.48H2.5c-1.4 0-2.51 1.13-2.51 2.52S1.14 32 2.54 32a2.52 2.52 0 1 0 0-5.05z"/></svg></button>
                     </section>
-                    <!-- Loaded from events API -->
+                    <section class="events" id="events">
+                        <!-- Loaded from events API -->
+                    </section>
                     <section class="other-activities">
                         <img class="other-activities__img" src="../static/img/search-decoration-img.jpg" alt="sfeer-beeld-2">
                         <div class="other-activities__search">
@@ -216,6 +218,7 @@
         </div>
     </footer>
     <script src="../static/js/categories.js"></script>
+    <script src="../static/js/events.js"></script>
     <script src="../static/js/main.js"></script>
 </body>
 </html>

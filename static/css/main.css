@@ -1438,11 +1438,16 @@ header p::selection {
     display: flex;
 }
 
+/* Hidden till screen is small enough */
+
+.event-detail--mobile {
+    display: none;
+}
+
 /* ------------------------------ event-detail__left -------------------------------- */
 
 .event-detail__left {
-    max-width: 52%;
-    width: 100%;
+    width: 55%;
 }
 
 .event-detail__left p::selection,
@@ -1492,6 +1497,7 @@ header p::selection {
     display: flex;
     align-items: center;
     gap: 1.6rem;
+    flex-wrap: wrap;
 }
 
 .event-space-time p {
@@ -1543,6 +1549,7 @@ header p::selection {
 .event-info a {
     color: white;
     text-decoration: underline;
+    overflow-wrap: anywhere;
 }
 
 .event-info a:hover {
@@ -1554,6 +1561,10 @@ header p::selection {
 }
 
 /* ------------------------------ event-detail__right --------------------------------- */
+
+.event-detail__right {
+    width: 45%;
+}
 
 /* Photo */
 
@@ -1722,6 +1733,30 @@ header p::selection {
     .other-activities__search {
         padding: 2rem 4rem;
     }
+
+    /* Detail page */
+    .event-detail__left {
+        width: 60%;
+    }
+    .event-detail__right {
+        width: 40%;
+    }
+    .event-detail__content {
+        font-size: 1rem;
+    }
+    .event-info__key {
+        max-width: 10rem;
+    }
+    .location {
+        width: 40%;
+        font-size: 1rem;
+    }
+    .event-space--map {
+        font-size: 1.2rem;
+    }
+    .google-maps {
+        width: 60%;
+    }
 }
 
 @media (max-width: 64rem) {
@@ -1763,6 +1798,30 @@ header p::selection {
     }
     .categories li {
         width: 50%;
+    }
+
+    /* Detail page */
+    .event-detail__left {
+        width: 65%;
+    }
+    .event-detail__right {
+        width: 35%;
+    }
+    .event-detail__content {
+        padding-left: 1rem;
+    }
+    .event-detail__right .socials--event a {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+    .map {
+        display: block;
+    }
+    .location {
+        width: 100%;
+    }
+    .google-maps {
+        width: 100%;
     }
 }
 
@@ -1935,6 +1994,36 @@ header p::selection {
     }
     .other-activities__search {
         padding: 2rem;
+    }
+
+    /* Detail page */
+    .event-detail {
+        display: none;
+    }
+    .event-detail--mobile {
+        display: block;
+    }
+    .event-detail__left {
+        width: 100%;
+    }
+    .event-detail__right {
+        width: 100%;
+    }
+    .event-detail__content {
+        padding: 3rem 0;
+    }
+    .event-detail__photo {
+        padding: 0;
+    }
+    .event-detail__right .socials--event {
+        padding-top: 2rem;
+    }
+    .event-info {
+        display: block;
+    }
+    .google-maps img {
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
     }
 }
 

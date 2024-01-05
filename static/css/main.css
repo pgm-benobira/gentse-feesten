@@ -1149,10 +1149,12 @@ header p::selection {
 
 .calendar-link--active a {
     padding: 2.6rem 0;
+    transition: none;
 }
 
 .calendar-link--active a:hover {
     background-color: var(--red);
+    transition: none;
 }
 
 .calendar-links--header .calendar__date {
@@ -1428,6 +1430,191 @@ header p::selection {
 
 .search-bar__container--white .search-bar__button:hover svg {
     fill: white;
+}
+
+/* ══════════════════════════════════ DETAIL.HTML ═══════════════════════════════════ */
+
+.event-detail {
+    display: flex;
+}
+
+/* ------------------------------ event-detail__left -------------------------------- */
+
+.event-detail__left {
+    max-width: 52%;
+    width: 100%;
+}
+
+.event-detail__left p::selection,
+.event-detail__left a::selection {
+    background-color: white;
+    color: black;
+}
+
+/* Go back to day page */
+
+.go-back {
+    display: flex;
+    align-items: center;
+    color: white;
+    max-width: 22rem;
+}
+
+.go-back__arrow {
+    transform: rotate(180deg);
+    max-width: 6rem;
+    fill: white;
+}
+
+.go-back p {
+    padding-left: 1.6rem;
+    background-color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    right: 3rem;
+    transition: 0.2s ease;
+}
+
+.go-back:hover p {
+    right: 0;
+    transition: 0.2s ease;
+}
+
+/* Event detail content */
+
+.event-detail__content {
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.event-space-time {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.event-space-time p {
+    font-size: 0.96rem;
+}
+
+.event-space {
+    color: black;
+    background-color: var(--red);
+    padding: 0.6rem 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.event-space::before {
+    content: '';
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background-image: url(../img/gentse-feesten-icoontjes/marker.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.event-accessibility__container {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--red);
+    border-radius: 50%;
+    padding: 0.6rem;
+}
+
+.event-description {
+    padding: 3rem 0;
+    line-height: 2rem;
+}
+
+.event-info {
+    display: flex;
+    padding-bottom: 1rem;
+}
+
+.event-info__key {
+    font-weight: bold;
+    max-width: 16rem;
+    width: 100%;
+}
+
+.event-info a {
+    color: white;
+    text-decoration: underline;
+}
+
+.event-info a:hover {
+    text-decoration: none;
+}
+
+.event-info__categories a {
+    display: block;
+}
+
+/* ------------------------------ event-detail__right --------------------------------- */
+
+/* Photo */
+
+.event-detail__photo {
+    padding-bottom: 2rem;
+}
+
+/* Socials */
+
+.event-detail__right .socials--event {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.6rem;
+}
+
+.event-detail__right .socials--event a {
+    width: 3.4rem;
+    height: 3.4rem;
+}
+
+/* --------------------------------------- map --------------------------------------- */
+
+.map {
+    display: flex;
+}
+
+.location {
+    font-size: 1.2rem;
+    background-color: var(--red);
+    padding: 2.6rem;
+    width: 30%;
+}
+
+.event-space--map {
+    display: inline-flex;
+    font-size: 1.4rem;
+    background-color: black;
+    color: white;
+    gap: 1rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.event-space--map::before {
+    filter: invert(1);
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.location a {
+    display: block;
+    text-decoration: underline;
+}
+
+.location a:hover {
+    text-decoration: none;
+}
+
+.google-maps {
+    width: 70%;
 }
 
 /* ----------------------------- 📱 Main media queries -------------------------------- */

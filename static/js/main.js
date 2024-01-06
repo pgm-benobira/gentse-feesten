@@ -19,7 +19,7 @@ function changeLogo() {
     const amountOfLetters = possibleLetters.length;
     const randomIndex = getRandomIndex(amountOfLetters);
     const randomLetter = possibleLetters[randomIndex - 1];
-    console.log(randomLetter);
+    console.log('Letter:', randomLetter);
     $logoElements.forEach(logo => {
         logo.src = `/Users/benoit/Desktop/Artevelde/2023-24/S1/Kwartaal%202/@Work%201/atwork-1_project_2_biraguma_benoit/app/static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
     });

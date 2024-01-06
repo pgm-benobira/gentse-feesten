@@ -128,7 +128,7 @@ function initialize () {
         activeCalendarLink(selectedDay);
         updatePageTitle(selectedDay);
     });
-    console.log(selectedDay);
+    console.log('Day:', selectedDay);
 };
 
 // Call the function for the application

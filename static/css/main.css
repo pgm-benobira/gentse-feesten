@@ -1462,7 +1462,7 @@ header p::selection {
     display: flex;
     align-items: center;
     color: white;
-    max-width: 22rem;
+    max-width: 24rem;
 }
 
 .go-back__arrow {

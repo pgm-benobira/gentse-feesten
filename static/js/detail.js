@@ -2,7 +2,7 @@
 const $eventDetail = document.getElementById('event-detail');
 
 // ---------------- API URL -------------------------------------------------------------------------------------------------------------------------------
-const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events.json';
+const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events_500.json';
 
 // ---------------- FETCH THE DATA ------------------------------------------------------------------------------------------------------------------------
 async function fetchData(url, callback) {

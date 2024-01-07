@@ -1500,7 +1500,8 @@ header p::selection {
     flex-wrap: wrap;
 }
 
-.event-space-time p {
+.event-space-time p,
+.event-space-time a {
     font-size: 0.96rem;
 }
 
@@ -1512,6 +1513,11 @@ header p::selection {
     align-items: center;
 }
 
+.event-space:hover {
+    color: white;
+    transition: 0.3s ease;
+}
+
 .event-space::before {
     content: '';
     display: block;
@@ -1520,6 +1526,11 @@ header p::selection {
     background-image: url(../img/gentse-feesten-icoontjes/marker.svg);
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.event-space:hover::before {
+    filter: invert(1);
+    transition: 0.3s ease;
 }
 
 .event-accessibility__container {
@@ -1609,18 +1620,27 @@ header p::selection {
     margin-bottom: 2rem;
 }
 
+.event-space--map:hover {
+    background-color: white;
+    color: black;
+}
+
 .event-space--map::before {
     filter: invert(1);
     width: 1.2rem;
     height: 1.2rem;
 }
 
-.location a {
+.event-space--map:hover::before {
+    filter: invert(0);
+}
+
+.open-in-maps {
     display: block;
     text-decoration: underline;
 }
 
-.location a:hover {
+.open-in-maps:hover {
     text-decoration: none;
 }
 

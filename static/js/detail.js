@@ -41,7 +41,7 @@ function generateHTMLForEventDetail(item) {
             <div class="event-detail__content">
                 <h2>${item.title}</h2>
                 <div class="event-space-time">
-                    <p class="event-space">${item.location}</p>
+                    <a href="#" class="event-space">${item.location}</a>
                     <p class="event-time">${item.start} u. - ${item.end} u.</p>
                     ${item.wheelchair_accessible ? `<div class="event-accessibility__container"><svg class="event-accessibility" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31 24.1.9 1.8a1 1 0 0 1-.45 1.34l-4.1 2.05a2 2 0 0 1-2.7-.94L20.73 20H12a2 2 0 0 1-1.98-1.72C7.9 3.45 8.02 4.38 8 4a4 4 0 1 1 4.59 3.96l.29 2.04H21a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-7.55l.3 2H22c.78 0 1.48.45 1.82 1.15l3.6 7.65 2.25-1.14a1 1 0 0 1 1.34.45zM19.47 22h-1.53A7.01 7.01 0 0 1 4 21c0-2.6 1.42-4.86 3.52-6.08l-.6-4.14A11.03 11.03 0 0 0 0 21a11.01 11.01 0 0 0 21.07 4.43L19.47 22z"/></svg></div>`  : ''}
                 </div>
@@ -77,7 +77,7 @@ function generateHTMLForEventDetail(item) {
             <div class="event-detail__content">
                 <h2>${item.title}</h2>
                 <div class="event-space-time">
-                    <p class="event-space">${item.location}</p>
+                    <a href="#" class="event-space">${item.location}</a>
                     <p class="event-time">${item.start} u. - ${item.end} u.</p>
                     ${item.wheelchair_accessible ? `<div class="event-accessibility__container"><svg class="event-accessibility" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31 24.1.9 1.8a1 1 0 0 1-.45 1.34l-4.1 2.05a2 2 0 0 1-2.7-.94L20.73 20H12a2 2 0 0 1-1.98-1.72C7.9 3.45 8.02 4.38 8 4a4 4 0 1 1 4.59 3.96l.29 2.04H21a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-7.55l.3 2H22c.78 0 1.48.45 1.82 1.15l3.6 7.65 2.25-1.14a1 1 0 0 1 1.34.45zM19.47 22h-1.53A7.01 7.01 0 0 1 4 21c0-2.6 1.42-4.86 3.52-6.08l-.6-4.14A11.03 11.03 0 0 0 0 21a11.01 11.01 0 0 0 21.07 4.43L19.47 22z"/></svg></div>`  : ''}
                 </div>
@@ -106,8 +106,8 @@ function generateHTMLForEventDetail(item) {
     </div>
     <div class="segment__inner segment__inner--newspage map">
         <section class="location">
-            <p class="event-space event-space--map">${item.location}</p>
-            <a href="#">Open in Google Maps</a>
+            <a href="#" class="event-space event-space--map">${item.location}</a>
+            <a href="#" class="open-in-maps">Open in Google Maps</a>
         </section>
         <section class="google-maps">
             <img src="../static/img/map-decoration-img.png" alt="map-of-ghent">

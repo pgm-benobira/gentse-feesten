@@ -832,6 +832,10 @@ header p::selection {
     transition: 0.3s ease;
 }
 
+.teaser p {
+    display: inline-block;
+}
+
 .teaser__wrapper:hover .teaser {
     bottom: 6rem;
     left: 3rem;
@@ -856,17 +860,16 @@ header p::selection {
     transition: 0.3s ease;
 }
 
-.teaser div {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-}
-
 .teaser__location {
     background-color: var(--red);
     color: black;
     padding: 0.2rem 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.teaser__paid {
+    display: none;
 }
 
 /* --------------------------------- News teasers ----------------------------------- */
@@ -1349,6 +1352,108 @@ header p::selection {
 
 .event-view--active svg {
     fill: black;
+}
+
+/* List Events (when the list button is clicked) */
+
+.events--list .teaser__date {
+    display: none;
+}
+
+.events--list .teaser__img {
+    display: none;
+}
+
+.events--list .event-category__teasers {
+    display: block;
+}
+
+.events--list .event-category__teasers .teaser__wrapper {
+    max-width: none;
+    width: 100%;
+    display: block;
+}
+
+.events--list .teaser__wrapper:hover .teaser {
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+}
+
+.events--list .teaser {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.events--list .teaser::after {
+    content: '';
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0rem;
+    transition: 0.6s ease;
+    z-index: 1;
+}
+
+.events--list .teaser__wrapper:hover .teaser::after {
+    top: 0rem;
+    left: 0rem;
+    transition: 0.9s ease;
+}
+
+.events--list .teaser__start,
+.events--list .teaser h3,
+.events--list .teaser__location,
+.events--list .teaser__paid {
+    padding: 1.6rem;
+    z-index: 2;
+    transition: 0.5s ease;
+}
+
+.events--list .teaser__wrapper:hover .teaser__start,
+.events--list .teaser__wrapper:hover .teaser h3,
+.events--list .teaser__wrapper:hover .teaser__location,
+.events--list .teaser__wrapper:hover .teaser__paid {
+    color: black;
+    fill: black;
+    border-color: black;
+    transition: 0.6s ease;
+}
+
+.events--list .teaser__start {
+    order: 1;
+    max-width: 11%;
+    width: 100%;
+}
+
+.events--list .teaser h3 {
+    order: 2;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    width: 67%;
+}
+
+.events--list .teaser__location {
+    order: 3;
+    margin: 0;
+    color: white;
+    background: none;
+    width: 22%;
+    padding: 0 1.6rem;
+}
+
+.events--list .teaser__paid {
+    order: 4;
+    display: block;
+    width: 1.2rem;
+    margin-right: 1.6rem;
+    padding: 0;
 }
 
 /* Event category title */

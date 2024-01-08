@@ -739,7 +739,7 @@ main a:focus {
 .segment__content--teasers {
     margin: 0;
     max-width: none;
-    overflow: auto;
+    overflow: hidden;
     white-space: nowrap;
     padding: 0;
     padding-bottom: 1rem;
@@ -778,6 +778,7 @@ main a:focus {
 .arrow svg:hover {
     cursor: pointer;
     transition: 0.2s ease;
+    fill: black;
 }
 
 .arrow--left:hover {
@@ -833,11 +834,12 @@ main a:focus {
     background-color: black;
     border: 1px white solid;
     padding: 2rem;
-    width: 70%;
+    width: 80%;
     position: relative;
     bottom: 3rem;
     left: 0;
     transition: 0.3s ease;
+    white-space: normal;
 }
 
 .teaser p {

@@ -41,6 +41,7 @@
 body {
     font-family: 'Fira Sans';
     background: black;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -608,6 +609,13 @@ header p::selection {
 ═════════════════════════════════════════ MAIN ══════════════════════════════════════════
 ══════════════════════════════════════════════════════════════════════════════════════ */
 
+main a:focus {
+    outline: 2px solid #fff;
+    outline-offset: 0.3rem;
+    position: relative;
+    z-index: 3;
+}
+
 /* ═══════════════════════════════════ INDEX.HTML ════════════════════════════════════ */
 
 /* ----------------------------------- Home banner ------------------------------------ */
@@ -865,6 +873,10 @@ header p::selection {
     color: black;
     padding: 0.2rem 1rem;
     margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.teaser__start {
     margin-top: 1rem;
 }
 
@@ -1387,6 +1399,8 @@ header p::selection {
     padding: 0;
     bottom: 0;
     overflow: hidden;
+    outline: 1px solid white;
+    border: none;
 }
 
 .events--list .teaser::after {
@@ -1397,7 +1411,7 @@ header p::selection {
     position: absolute;
     top: 100%;
     left: 0rem;
-    transition: 0.6s ease;
+    transition: 0.4s ease;
     z-index: 1;
 }
 
@@ -1411,7 +1425,6 @@ header p::selection {
 .events--list .teaser h3,
 .events--list .teaser__location,
 .events--list .teaser__paid {
-    padding: 1.6rem;
     z-index: 2;
     transition: 0.5s ease;
 }
@@ -1430,6 +1443,8 @@ header p::selection {
     order: 1;
     max-width: 11%;
     width: 100%;
+    padding: 0 1.6rem;
+    margin: 0;
 }
 
 .events--list .teaser h3 {
@@ -1437,6 +1452,7 @@ header p::selection {
     border-left: 1px solid white;
     border-right: 1px solid white;
     width: 67%;
+    padding: 1.6rem;
 }
 
 .events--list .teaser__location {
@@ -1485,6 +1501,7 @@ header p::selection {
     flex-wrap: wrap;
     gap: 1rem;
     padding-bottom: 10rem;
+    align-items: flex-start;
 }
 
 .event-category__teasers .teaser__wrapper {
@@ -1924,6 +1941,43 @@ header p::selection {
     .categories li {
         width: 50%;
     }
+    .go-up svg {
+        width: 1rem;
+    }
+    .event-category__teasers .teaser__wrapper {
+        max-width: 50%;
+        width: 48%;
+    }
+    .events--list .teaser {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.6rem 1.2rem;
+        padding-right: 3rem;
+        transition: none;
+    }
+    .events--list .teaser__start,
+    .events--list .teaser h3,
+    .events--list .teaser__location {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        border: none;
+        transition: none;
+    }
+    .events--list .teaser h3 {
+        padding: 1rem 0;
+        transition: none;
+    }
+    .events--list .teaser__paid {
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        outline: 1px solid white;
+        width: 2.4rem;
+        padding: 0.6rem;
+        transition: none;
+    }
 
     /* Detail page */
     .event-detail__left {
@@ -2015,6 +2069,9 @@ header p::selection {
     }
     .teaser {
         width: 85%;
+    }
+    .teaser__date {
+        font-size: 0.9rem;
     }
 
     /* News page */
@@ -2119,6 +2176,10 @@ header p::selection {
     }
     .other-activities__search {
         padding: 2rem;
+    }
+    .event-category__teasers .teaser__wrapper {
+        max-width: none;
+        width: 100%;
     }
 
     /* Detail page */

@@ -39,7 +39,7 @@ function renderRandomEvents(amount, data) {
     // Take the first three from the shuffled events array
     const randomEvents = shuffledEvents.slice(0, amount);
     const randomEventsHTML = randomEvents.map((item) => `
-        <a href="detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
+        <a href="./events/detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
             <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
             <img class="teaser__img" src="${item.image ? item.image.thumb : './static/img/no-event-image.jpg'}" alt="thumb-image-${item.slug}">
             <div class="teaser">

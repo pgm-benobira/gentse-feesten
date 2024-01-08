@@ -1511,6 +1511,12 @@ main a:focus {
     flex-grow: 1;
 }
 
+/* ----------------------------- Random event-teasers -------------------------------- */
+
+.random-events {
+    padding-bottom: 6rem;
+}
+
 /* ------------------------------- Other activities ---------------------------------- */
 
 .other-activities {

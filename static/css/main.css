@@ -2187,6 +2187,9 @@ main a:focus {
         max-width: none;
         width: 100%;
     }
+    .random-events {
+        display: none;
+    }
 
     /* Detail page */
     .event-detail {

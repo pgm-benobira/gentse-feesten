@@ -19,7 +19,7 @@ function changeEventsView() {
 };
 
 // ---------------- API URL -------------------------------------------------------------------------------------------------------------------------------
-const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events_500.json';
+const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events.json';
 
 // ---------------- FETCH THE DATA ------------------------------------------------------------------------------------------------------------------------
 async function fetchData(url, callback) {
@@ -47,13 +47,13 @@ function filteredEventsByDay(events, selectedDay) {
 // ---------------- EVENTS --------------------------------------------------------------------------------------------------------------------------------
 function generateHTMLForEvents(items, category) {
     // All the items for one category
-    const categoryItems = items.filter((item) => item.category === category)
+    const categoryItems = items.filter((item) => item.category.includes(category))
 
     // HTML for teasers in one category
     const teasersHTML = categoryItems.map((item) => `
     <a href="detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
         <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
-        <img class="teaser__img" src="${item.image ? item.image.thumb : ''}" alt="">
+        <img class="teaser__img" src="${item.image ? item.image.thumb : '../static/img/no-event-image.jpg'}" alt="thumb-image-${item.slug}">
         <div class="teaser">
             <h3>${item.title}</h3>
             <p class="teaser__location">${item.location}</p>
@@ -61,7 +61,7 @@ function generateHTMLForEvents(items, category) {
             ${item.wheelchair_accessible ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
         </div>
     </a>
-    `)
+    `).join('')
 
     // HTML for the entire category
     return `
@@ -81,7 +81,7 @@ function renderEvents(data) {
     // Filter events on selected day
     const filteredEvents = filteredEventsByDay(data, selectedDay)
     // Extract unique categories from the events array
-    categories = [...new Set(filteredEvents.map(event => event.category))];
+    const categories = [...new Set(filteredEvents.map(event => event.category).flat())];
     console.log(categories);
     // Used to accumulate all HTML for all categories
     let eventsHTML = '';
@@ -109,7 +109,7 @@ function activeCalendarLink(selectedDay) {
 
 // ---------------- UPDATE PAGE TITLE ---------------------------------------------------------------------------------------------------------------------
 function updatePageTitle(selectedDay) {
-    days = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']
+    const days = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag']
     const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date
     let day = days[d.getDay()]; // Returns number between 0 and 6 => days array to turn it into a readable day
     document.title = `${day} ${selectedDay} juli | Gentse Feesten 2023`

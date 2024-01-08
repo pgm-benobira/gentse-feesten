@@ -92,15 +92,14 @@ function renderEvents(data) {
 };
 
 // ---------------- RANDOM DAY EVENTS ---------------------------------------------------------------------------------------------------------------------
-const $randomEvents = document.getElementById('random-events')
-
-function renderRandomEvents(data) {
+function renderRandomEvents(amount, data) {
+    const $randomEvents = document.getElementById('random-events')
     // Filter events on selected day
     const filteredEvents = filteredEventsByDay(data, selectedDay);
     // Shuffle the events (https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/)
     const shuffledEvents = filteredEvents.sort(() => Math.random() - 0.5)
     // Take the first three from the shuffled events array
-    const randomEvents = shuffledEvents.slice(0, 3)
+    const randomEvents = shuffledEvents.slice(0, amount)
     const randomEventsHTML = randomEvents.map((item) => `
         <a href="detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
             <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
@@ -114,7 +113,7 @@ function renderRandomEvents(data) {
         </a>
     `).join('');
     $randomEvents.innerHTML = randomEventsHTML;
-}
+};
 
 // ---------------- ACTIVE VIEW (calendar) ----------------------------------------------------------------------------------------------------------------
 function activeCalendarLink(selectedDay) {
@@ -138,7 +137,7 @@ function updatePageTitle(selectedDay) {
     const d = new Date(`July ${selectedDay}, 2023`); // Get day of the week for specific date
     let day = days[d.getDay()]; // Returns number between 0 and 6 => days array to turn it into a readable day
     document.title = `${day} ${selectedDay} juli | Gentse Feesten 2023`
-}
+};
 
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
@@ -149,7 +148,7 @@ function initialize () {
     const api = API_URL;
     fetchData(api, data => {
         renderEvents(data);
-        renderRandomEvents(data)
+        renderRandomEvents(3, data)
         activeCalendarLink(selectedDay);
         updatePageTitle(selectedDay);
     });

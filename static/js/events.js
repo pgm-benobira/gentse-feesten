@@ -1,6 +1,22 @@
 (() => {
 const $events = document.getElementById('events');
 
+// ---------------- ACTIVE VIEW (list/raster) -------------------------------------------------------------------------------------------------------------
+function changeEventsView() {
+    const $list = document.querySelector('.list');
+    const $raster = document.querySelector('.raster');
+    $list.addEventListener('click', () => {
+        $raster.classList.remove('event-view--active')
+        $events.classList.add('events--list')
+        $list.classList.add('event-view--active')
+    });
+    $raster.addEventListener('click', () => {
+        $list.classList.remove('event-view--active')
+        $events.classList.remove('events--list')
+        $raster.classList.add('event-view--active')
+    });
+};
+
 // ---------------- API URL -------------------------------------------------------------------------------------------------------------------------------
 const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events.json';
 
@@ -138,6 +154,8 @@ function updatePageTitle(selectedDay) {
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
 function initialize () {
+    // Change the appearance of the event teasers
+    changeEventsView();
     // Load the events from the API
     const api = API_URL;
     fetchData(api, data => {

@@ -1106,7 +1106,9 @@ main a:focus {
     position: relative;
     max-width: 60rem;
     width: 100%;
-    margin: 6rem auto;
+    margin: 0 auto;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
 }
 
 .search-bar,
@@ -1149,6 +1151,30 @@ main a:focus {
 .search-bar__button:hover svg {
     fill: black;
     transition: 0.3s ease;
+}
+
+/* ------------------------------- Search feedback ---------------------------------- */
+
+.search-feedback {
+    padding-bottom: 2rem;
+}
+
+.search-feedback--hidden {
+    display: none;
+}
+
+.events--hidden {
+    display: none;
+}
+
+.search-feedback__paragraph {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.search-feedback__paragraph::selection {
+    color: black;
+    background-color: white;
 }
 
 /* ═══════════════════════════════════ DAY.HTML ═════════════════════════════════════ */

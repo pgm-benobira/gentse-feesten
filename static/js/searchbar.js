@@ -26,8 +26,19 @@ let searchValue = urlParams.get('search');
 function filteredSearchEvents(events, searchValue) {
     // Only do if there is a searchValue otherwise it's just a blank search page
     if (searchValue !== null) {
-        return events.filter((event) => event.title.toLowerCase().includes(searchValue.toLowerCase()));
-    }
+        return events.filter((event) => {
+        // To catch empty locations or empty descriptions
+        const lowerCaseLocation = event.location ? event.location.toLowerCase() : '';
+        const lowerCaseDescription = event.description ? event.description.toLowerCase() : '';
+        return (
+            event.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+            event.day.toLowerCase().includes(searchValue.toLowerCase()) ||
+            lowerCaseLocation.toLowerCase().includes(searchValue.toLowerCase()) ||
+            lowerCaseDescription.toLowerCase().includes(searchValue.toLowerCase()) ||
+            event.day_of_week.toLowerCase().includes(searchValue.toLowerCase())
+            );
+        });
+    };
     console.log('Blank search page');
 };
 
@@ -37,7 +48,7 @@ function renderSearchEvents(events) {
     if (events !== undefined) {
         // HTML for searched events
         const searchEventsHTML = events.map((item) => `
-            <a href="detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
+            <a href="./events/detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
                 <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
                 <img class="teaser__img" src="${item.image ? item.image.thumb : './static/img/no-event-image.jpg'}" alt="thumb-image-${item.slug}">
                 <div class="teaser">

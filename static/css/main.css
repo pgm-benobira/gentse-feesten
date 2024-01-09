@@ -1126,6 +1126,11 @@ main a:focus {
     outline-offset: -2px;
 }
 
+.search-bar::selection {
+    color: black;
+    background-color: white;
+}
+
 .search-bar::placeholder {
     color: white;
 }

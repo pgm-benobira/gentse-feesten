@@ -50,17 +50,24 @@ function renderSearchEvents(events) {
     `;
 };
 
+// ---------------- CHANGE INPUT VALUE --------------------------------------------------------------------------------------------------------------------
+const $searchBar = document.getElementById('search-bar')
+function changeInputValue(searchValue) {
+    return $searchBar.value = searchValue
+}
+
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
 function initialize () {
     // Load the events from the API
     const api = API_URL;
     fetchData(api, data => {
-        console.log(filteredSearchEvents(data, searchValue));
         renderSearchEvents(data);
     });
+    // Show the searchValue in the input field
+    changeInputValue(searchValue)
     // Console checks
-    console.log(searchValue);
+    console.log('Search:', searchValue);
 };
 
 // Call the function for the application

@@ -1099,13 +1099,14 @@ main a:focus {
 
 /* ══════════════════════════════════ SEARCH.HTML ═════════════════════════════════════ */
 
+/* ----------------------------------- Search bar ------------------------------------- */
+
 .search-bar__container {
     display: flex;
     position: relative;
     max-width: 60rem;
     width: 100%;
-    margin: 0 auto;
-    margin-top: 6rem;
+    margin: 6rem auto;
 }
 
 .search-bar,

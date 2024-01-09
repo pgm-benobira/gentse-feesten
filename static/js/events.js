@@ -94,7 +94,7 @@ function renderEvents(data) {
     // Filter events on selected day
     const filteredEvents = filteredEventsByDay(data, selectedDay)
     // Extract unique categories from the events array
-    const categories = [...new Set(filteredEvents.map(event => event.category).flat())];
+    const categories = [...new Set(filteredEvents.map(event => event.category).flat())].sort();
     // Used to accumulate all HTML for all categories
     let eventsHTML = '';
     for (const category of categories) {

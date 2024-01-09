@@ -61,6 +61,10 @@ function handleURLParams() {
 function generateHTMLForEvents(items, category) {
     // All the items for one category
     const categoryItems = items.filter((item) => item.category.includes(category))
+    // Sort the items with the sort_key
+    categoryItems.sort((a, b) => {
+        return a.sort_key - b.sort_key;
+    });
 
     // HTML for teasers in one category
     const teasersHTML = categoryItems.map((item) => `

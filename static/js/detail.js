@@ -28,6 +28,25 @@ function filteredEventsBySlug(data, slug) {
     return data.find((item) => item.slug === slug && item.day === selectedDay);
 };
 
+// ---------------- CHECK SELECTED DAY AND EVENT -----------------------------------------------------------------------------------------------------------
+function isValidDay(selectedDay) {
+    const eventDays = ['14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+    return eventDays.includes(selectedDay);
+};
+
+function isValidEvent(data ,selectedEvent) {
+    const eventSlugs = data.map(item => item.slug);
+    return eventSlugs.includes(selectedEvent);
+};
+
+function handleURLParams(data) {
+    if (isValidDay(selectedDay) && isValidEvent(data ,selectedEvent)) {
+        console.log('Correct event and day!');
+    } else {
+        window.open('day.html', '_self');
+    }
+};
+
 // ---------------- EVENTS --------------------------------------------------------------------------------------------------------------------------------
 function generateHTMLForEventDetail(item) {
     categoriesHTML = item.category.map((c) => `<a href="./day.html?day=${item.day}#${c}">${c}</a>`).join('\n')
@@ -147,11 +166,16 @@ function initialize () {
     // Load the events from the API
     const api = API_URL;
     fetchData(api, data => {
-        const selectedEventData = selectedEvent ? filteredEventsBySlug(data, selectedEvent) : '';
+        const selectedEventData = selectedEvent ? filteredEventsBySlug(data, selectedEvent) : ``;
+        isValidEvent(data ,selectedEvent);
+        handleURLParams(data)
         renderEventDetail(selectedEventData);
         activeCalendarLink(selectedDay);
         updatePageTitle(selectedEventData.title);
     });
+    // Handle wrong URLParams
+    
+    // Console checks
     console.log('Day:', selectedDay);
     console.log('Event:', selectedEvent)
 };

@@ -44,6 +44,20 @@ function filteredEventsByDay(events, selectedDay) {
     return events.filter((event) => event.day === selectedDay);
 };
 
+// ---------------- CHECK SELECTED DAY --------------------------------------------------------------------------------------------------------------------
+function isValidDay(selectedDay) {
+    const eventDays = ['14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+    return eventDays.includes(selectedDay);
+};
+
+function handleURLParams() {
+    if (isValidDay(selectedDay)) {
+        console.log('Correct day!');
+    } else {
+        window.open('day.html', '_self');
+    }
+};
+
 // ---------------- EVENTS --------------------------------------------------------------------------------------------------------------------------------
 function generateHTMLForEvents(items, category) {
     // All the items for one category
@@ -82,7 +96,6 @@ function renderEvents(data) {
     const filteredEvents = filteredEventsByDay(data, selectedDay)
     // Extract unique categories from the events array
     const categories = [...new Set(filteredEvents.map(event => event.category).flat())];
-    console.log(categories);
     // Used to accumulate all HTML for all categories
     let eventsHTML = '';
     for (const category of categories) {
@@ -147,11 +160,13 @@ function initialize () {
     // Load the events from the API
     const api = API_URL;
     fetchData(api, data => {
+        handleURLParams()
         renderEvents(data);
         renderRandomEvents(3, data)
         activeCalendarLink(selectedDay);
         updatePageTitle(selectedDay);
     });
+    // Console checks
     console.log('Day:', selectedDay);
 };
 

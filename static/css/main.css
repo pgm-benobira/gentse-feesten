@@ -1829,6 +1829,12 @@ main a:focus {
     width: 70%;
 }
 
+/* ----------------------------------- extra events ----------------------------------- */
+
+.segment__inner--events {
+    padding-bottom: 0;
+}
+
 /* ----------------------------- 📱 Main media queries -------------------------------- */
 
 @media (max-width: 80rem) {

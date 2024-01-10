@@ -32,13 +32,23 @@ function filteredEventsBySlug(data, slug) {
 function filteredEventsByEventLocationAndDay(data, selectedEvent) {
     // Gives back the selected event object
     const eventObject = filteredEventsBySlug(data, selectedEvent);
-    console.log(eventObject);
     // Filter on events with the same location and day
     const eventsSameLocationDay = data.filter((item) => item.location === eventObject.location && item.day === eventObject.day);
     // Filter out the selected event from the eventsSameLocationDay
     const filteredEvents = eventsSameLocationDay.filter((item) => item.slug !== selectedEvent);
-    console.log(filteredEvents);
     return generateHTMLForTeasers(filteredEvents);
+};
+
+function filteredEventsByEventOrganizer(data, selectedEvent, amount) {
+    // Gives back the selected event object
+    const eventObject = filteredEventsBySlug(data, selectedEvent);
+    // Filter on events with the same organizer
+    const eventsSameOrganizer = data.filter((item) => item.organizer === eventObject.organizer);
+    // Filter out the selected event from the eventsSameOrganizer
+    const filteredEvents = eventsSameOrganizer.filter((item) => item.slug !== selectedEvent);
+    // Only show a specified amount of filteredEvents
+    const amountOfFilteredEvents = filteredEvents.slice(0, amount);
+    return generateHTMLForTeasers(amountOfFilteredEvents);
 };
 
 // ---------------- CHECK SELECTED DAY AND EVENT -----------------------------------------------------------------------------------------------------------
@@ -73,7 +83,7 @@ function generateHTMLForEventDetailGoBack(item) {
 function generateHTMLForEventDetailSpaceTime(item) {
     return `
     <div class="event-space-time">
-        <a href="#" class="event-space">${item.location}</a>
+        ${item.location ? `<a href="#" class="event-space">${item.location}</a>` : `<a href="#" class="event-space">Geen locatie</a>`}
         <p class="event-time">${item.start} u. - ${item.end} u.</p>
         ${item.wheelchair_accessible ? `<div class="event-accessibility__container"><svg class="event-accessibility" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31 24.1.9 1.8a1 1 0 0 1-.45 1.34l-4.1 2.05a2 2 0 0 1-2.7-.94L20.73 20H12a2 2 0 0 1-1.98-1.72C7.9 3.45 8.02 4.38 8 4a4 4 0 1 1 4.59 3.96l.29 2.04H21a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-7.55l.3 2H22c.78 0 1.48.45 1.82 1.15l3.6 7.65 2.25-1.14a1 1 0 0 1 1.34.45zM19.47 22h-1.53A7.01 7.01 0 0 1 4 21c0-2.6 1.42-4.86 3.52-6.08l-.6-4.14A11.03 11.03 0 0 0 0 21a11.01 11.01 0 0 0 21.07 4.43L19.47 22z"/></svg></div>`  : ''}
     </div>
@@ -133,7 +143,7 @@ function generateHTMLForEventDetailMobile(item) {
             <div class="event-detail__content">
                 <h2>${item.title}</h2>
                 ${generateHTMLForEventDetailSpaceTime(item)}
-                <p class="event-description">${item.description}</p>
+                ${item.description ? `<p class="event-description">${item.description}</p>` : `<p class="event-description"><em>Geen bescrijving beschikbaar</em></p>`}
                 <img class="event-detail__photo" loading="lazy" src="${item.image ? item.image.full : ''}" alt="foto-${item.slug}">
             </div>
         </section>
@@ -155,7 +165,7 @@ function generateHTMLForEventDetail(item) {
             <div class="event-detail__content">
                 <h2>${item.title}</h2>
                 ${generateHTMLForEventDetailSpaceTime(item)}
-                <p class="event-description">${item.description}</p>
+                ${item.description ? `<p class="event-description">${item.description}</p>` : `<p class="event-description"><em>Geen bescrijving beschikbaar</em></p>`}
                 ${generateHTMLForEventDetailOrganizer(item)}
                 ${item.url ? `<div class="event-info"><p class="event-info__key">Website:</p><a href="${item.url}" target="_blank">${item.url}</a></div>`: ''}
                 ${generateHTMLForEventDetailCategories(item)}
@@ -191,16 +201,46 @@ function generateHTMLForTeasers(events) {
     `).join('')
 };
 
-function generateHTMLForEventExtra(data) {
+function generateHTMLForSameLocationDayEvent(data) {
+    const filteredEventsHTML = filteredEventsByEventLocationAndDay(data, selectedEvent);
+    // If there is no HTML then there a no events matching day and location
+    if (filteredEventsHTML === '') {
+        return ``
+    }
     return `
-    <div class="segment__inner segment__inner--newspage" id="nog-te-beleven-op-deze-locatie">
+    <div class="segment__inner segment__inner--newspage segment__inner--events">
         <div class="event-category__title">
             <h2>Nog te beleven op deze locatie</h2>
         </div>
         <div class="event-category__teasers">
-            ${filteredEventsByEventLocationAndDay(data, selectedEvent)}
+            ${filteredEventsHTML}
         </div>
     </div>
+    `
+}
+
+function generateHTMLForSameOrganizerEvent(data) {
+    const filteredEventsHTML = filteredEventsByEventOrganizer(data, selectedEvent, 4);
+    // If there is no HTML then there a no events matching day and location
+    if (filteredEventsHTML === '') {
+        return ``
+    }
+    return `
+    <div class="segment__inner segment__inner--newspage segment__inner--events events--list">
+        <div class="event-category__title">
+            <h2>Andere evenementen van deze organisator</h2>
+        </div>
+        <div class="event-category__teasers">
+            ${filteredEventsHTML}
+        </div>
+    </div>
+    `
+}
+
+function generateHTMLForEventExtra(data) {
+    return `
+    ${generateHTMLForSameLocationDayEvent(data)}
+    ${generateHTMLForSameOrganizerEvent(data)}
     `
 };
 

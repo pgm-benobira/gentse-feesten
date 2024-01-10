@@ -1176,7 +1176,8 @@ main a:focus {
     text-align: center;
 }
 
-.search-feedback__paragraph::selection {
+.search-feedback__paragraph::selection,
+.search-feedback__paragraph strong::selection {
     color: black;
     background-color: white;
 }

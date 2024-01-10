@@ -1,5 +1,6 @@
 (() => {
 const $eventDetail = document.getElementById('event-detail');
+const $eventExtra = document.getElementById('event-extra');
 
 // ---------------- API URL -------------------------------------------------------------------------------------------------------------------------------
 const API_URL = 'https://www.pgm.gent/data/gentsefeesten/events.json';
@@ -22,10 +23,22 @@ async function fetchData(url, callback) {
 // ---------------- FILTER EVENTS -------------------------------------------------------------------------------------------------------------------------
 const urlParams = new URLSearchParams(window.location.search);
 let selectedDay = urlParams.get('day') ? urlParams.get('day') : '14';
-let selectedEvent = urlParams.get('slug')
+let selectedEvent = urlParams.get('slug');
 
 function filteredEventsBySlug(data, slug) {
     return data.find((item) => item.slug === slug && item.day === selectedDay);
+};
+
+function filteredEventsByEventLocationAndDay(data, selectedEvent) {
+    // Gives back the selected event object
+    const eventObject = filteredEventsBySlug(data, selectedEvent);
+    console.log(eventObject);
+    // Filter on events with the same location and day
+    const eventsSameLocationDay = data.filter((item) => item.location === eventObject.location && item.day === eventObject.day);
+    // Filter out the selected event from the eventsSameLocationDay
+    const filteredEvents = eventsSameLocationDay.filter((item) => item.slug !== selectedEvent);
+    console.log(filteredEvents);
+    return generateHTMLForTeasers(filteredEvents);
 };
 
 // ---------------- CHECK SELECTED DAY AND EVENT -----------------------------------------------------------------------------------------------------------
@@ -40,14 +53,14 @@ function isValidEvent(data ,selectedEvent) {
 };
 
 function handleURLParams(data) {
-    if (isValidDay(selectedDay) && isValidEvent(data ,selectedEvent)) {
+    if (isValidDay(selectedDay) && isValidEvent(data, selectedEvent)) {
         console.log('Correct event and day!');
     } else {
         window.open('day.html', '_self');
     }
 };
 
-// ---------------- EVENTS --------------------------------------------------------------------------------------------------------------------------------
+// ---------------- EVENT ---------------------------------------------------------------------------------------------------------------------------------
 function generateHTMLForEventDetailGoBack(item) {
     return `
     <a href="./day.html?day=${item.day}" class="go-back">
@@ -55,7 +68,7 @@ function generateHTMLForEventDetailGoBack(item) {
         <p>Overzicht ${item.day_of_week} ${item.day} juli</p>
     </a>
     `
-}
+};
 
 function generateHTMLForEventDetailSpaceTime(item) {
     return `
@@ -65,7 +78,7 @@ function generateHTMLForEventDetailSpaceTime(item) {
         ${item.wheelchair_accessible ? `<div class="event-accessibility__container"><svg class="event-accessibility" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31 24.1.9 1.8a1 1 0 0 1-.45 1.34l-4.1 2.05a2 2 0 0 1-2.7-.94L20.73 20H12a2 2 0 0 1-1.98-1.72C7.9 3.45 8.02 4.38 8 4a4 4 0 1 1 4.59 3.96l.29 2.04H21a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-7.55l.3 2H22c.78 0 1.48.45 1.82 1.15l3.6 7.65 2.25-1.14a1 1 0 0 1 1.34.45zM19.47 22h-1.53A7.01 7.01 0 0 1 4 21c0-2.6 1.42-4.86 3.52-6.08l-.6-4.14A11.03 11.03 0 0 0 0 21a11.01 11.01 0 0 0 21.07 4.43L19.47 22z"/></svg></div>`  : ''}
     </div>
     `
-}
+};
 
 function generateHTMLForEventDetailOrganizer(item) {
     return `
@@ -74,7 +87,7 @@ function generateHTMLForEventDetailOrganizer(item) {
         <p>${item.organizer}</p>
     </div>
     `
-}
+};
 
 function generateHTMLForEventDetailCategories(item) {
     const categoriesHTML = item.category.map((c) => `<a href="./day.html?day=${item.day}#${c}">${c}</a>`).join('\n');
@@ -158,8 +171,41 @@ function generateHTMLForEventDetail(item) {
     `
 };
 
-function renderEventDetail(data) {
-    $eventDetail.innerHTML = generateHTMLForEventDetail(data);
+function renderEventDetail(event) {
+    $eventDetail.innerHTML = generateHTMLForEventDetail(event);
+};
+
+// ---------------- EVENT-EXTRA ---------------------------------------------------------------------------------------------------------------------------
+function generateHTMLForTeasers(events) {
+    return events.map((event) => `
+    <a href="detail.html?day=${event.day}&slug=${event.slug}" class="teaser__wrapper">
+        <span class="teaser__date">${event.day_of_week} ${event.day} juli</span>
+        <img class="teaser__img" src="${event.image ? event.image.thumb : '../static/img/no-event-image.jpg'}" alt="thumb-image-${event.slug}">
+        <div class="teaser">
+            <h3>${event.title}</h3>
+            <p class="teaser__location">${event.location}</p>
+            <p class="teaser__start">${event.start} u.</p>
+            ${event.wheelchair_accessible ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
+        </div>
+    </a>
+    `).join('')
+};
+
+function generateHTMLForEventExtra(data) {
+    return `
+    <div class="segment__inner segment__inner--newspage" id="nog-te-beleven-op-deze-locatie">
+        <div class="event-category__title">
+            <h2>Nog te beleven op deze locatie</h2>
+        </div>
+        <div class="event-category__teasers">
+            ${filteredEventsByEventLocationAndDay(data, selectedEvent)}
+        </div>
+    </div>
+    `
+};
+
+function renderEventExtra(data) {
+    $eventExtra.innerHTML = generateHTMLForEventExtra(data);
 };
 
 // ---------------- ACTIVE VIEW (calendar) ----------------------------------------------------------------------------------------------------------------
@@ -181,7 +227,7 @@ function activeCalendarLink(selectedDay) {
 // ---------------- UPDATE PAGE TITLE ---------------------------------------------------------------------------------------------------------------------
 function updatePageTitle(selectedEvent) {
     document.title = `${selectedEvent} | Gentse Feesten 2023`
-}
+};
 
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
@@ -193,6 +239,7 @@ function initialize () {
         isValidEvent(data ,selectedEvent);
         handleURLParams(data)
         renderEventDetail(selectedEventData);
+        renderEventExtra(data);
         activeCalendarLink(selectedDay);
         updatePageTitle(selectedEventData.title);
     });

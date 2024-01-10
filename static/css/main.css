@@ -566,6 +566,7 @@ header p::selection {
 @media (max-width: 48rem) {
     .header__inner,
     .modal__inner {
+        margin-right: 1rem;
         padding: 1.3rem 1rem;
         transition: 0.3s ease;
     }
@@ -606,10 +607,16 @@ header p::selection {
 }
 
 @media (max-width: 28rem) {
+    .modal .logo-gf {
+        width: 9rem;
+    }
     .modal__program__days {
         position: relative;
         left: 3rem;
         top: 1rem;
+    }
+    .modal__program::after {
+        display: none;
     }
 }
 
@@ -1155,10 +1162,6 @@ main a:focus {
 
 /* ------------------------------- Search feedback ---------------------------------- */
 
-.search-feedback {
-    padding-bottom: 2rem;
-}
-
 .search-feedback--hidden {
     display: none;
 }
@@ -1168,6 +1171,7 @@ main a:focus {
 }
 
 .search-feedback__paragraph {
+    padding-bottom: 2rem;
     font-size: 1.6rem;
     text-align: center;
 }

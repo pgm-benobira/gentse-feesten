@@ -42,12 +42,45 @@ function filteredSearchEvents(events, searchValue) {
     console.log('Blank search page');
 };
 
+// ---------------- ITEMS NAV -----------------------------------------------------------------------------------------------------------------------------
+function renderItemsNav(items) {
+    if (items.length >= 73) {
+        return `
+        <nav class="iems-nav">
+            <a href="#" class="page-button page-button--active"><span>01</span></a>
+            <a href="#" class="page-button"><span>02</span></a>
+            <a href="#" class="page-button"><span>03</span></a>
+            <a href="#" class="page-button"><span>04</span></a>
+        </nav>
+        `;
+    } else if (items.length >= 49) {
+        return `
+        <nav class="iems-nav">
+            <a href="#" class="page-button page-button--active"><span>01</span></a>
+            <a href="#" class="page-button"><span>02</span></a>
+            <a href="#" class="page-button"><span>03</span></a>
+        </nav>
+        `;
+    } else if (items.length >= 25) {
+        return `
+        <nav class="iems-nav">
+            <a href="#" class="page-button page-button--active"><span>01</span></a>
+            <a href="#" class="page-button"><span>02</span></a>
+        </nav>
+        `;
+    } else {
+        return ``;
+    }
+};
+
 // ---------------- SHOW FILTERED EVENTS ------------------------------------------------------------------------------------------------------------------
-function renderSearchEvents(events) {
+function renderSearchEvents(events, amount) {
     // Only rendrer if there are events
     if (events !== undefined) {
+        // Display a maximum amount of teasers
+        const slicedEvents = events.slice(0, amount)
         // HTML for searched events
-        const searchEventsHTML = events.map((item) => `
+        const searchEventsHTML = slicedEvents.map((item) => `
             <a href="./events/detail.html?day=${item.day}&slug=${item.slug}" class="teaser__wrapper">
                 <span class="teaser__date">${item.day_of_week} ${item.day} juli</span>
                 <img class="teaser__img" src="${item.image ? item.image.thumb : './static/img/no-event-image.jpg'}" alt="thumb-image-${item.slug}">
@@ -60,11 +93,12 @@ function renderSearchEvents(events) {
             </a>
         `).join('');
         $events.innerHTML = `
-        <div class="event-category__teasers">
+        <div class="event-category__teasers search-events">
             ${searchEventsHTML}
         </div>
+        ${renderItemsNav(events)}
         `;
-    }
+    };
 };
 
 // ---------------- CHANGE INPUT VALUE --------------------------------------------------------------------------------------------------------------------
@@ -131,7 +165,7 @@ function initialize () {
     const api = API_URL;
     fetchData(api, data => {
         const filteredEvents = filteredSearchEvents(data, searchValue);
-        renderSearchEvents(filteredEvents);
+        renderSearchEvents(filteredEvents, 24);
         showSearchFeedback(searchValue, filteredEvents);
         changeEventsView(filteredEvents);
     });

@@ -1070,7 +1070,7 @@ main a:focus {
 
 /* News navigation */
 
-.news-nav {
+.iems-nav {
     max-width: 69rem;
     margin: 0 auto;
     display: flex;
@@ -1179,6 +1179,12 @@ main a:focus {
 .search-feedback__paragraph::selection {
     color: black;
     background-color: white;
+}
+
+/* -------------------------------- Search events ----------------------------------- */
+
+.events .search-events {
+    padding-bottom: 4rem;
 }
 
 /* ═══════════════════════════════════ DAY.HTML ═════════════════════════════════════ */

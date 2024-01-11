@@ -144,7 +144,7 @@ function generateHTMLForEventDetailMobile(item) {
                 <h2>${item.title}</h2>
                 ${generateHTMLForEventDetailSpaceTime(item)}
                 ${item.description ? `<p class="event-description">${item.description}</p>` : `<p class="event-description"><em>Geen bescrijving beschikbaar</em></p>`}
-                <img class="event-detail__photo" loading="lazy" src="${item.image ? item.image.full : ''}" alt="foto-${item.slug}">
+                <img class="event-detail__photo" loading="lazy" src="${item.image ? item.image.full : '../static/img/no-event-image.jpg'}" alt="foto-${item.slug}">
             </div>
         </section>
         <section class="event-detail__right">
@@ -172,7 +172,7 @@ function generateHTMLForEventDetail(item) {
             </div>
         </section>
         <section class="event-detail__right">
-            <img class="event-detail__photo" loading="lazy" src="${item.image ? item.image.full : ''}" alt="foto-${item.slug}">
+            <img class="event-detail__photo" loading="lazy" src="${item.image ? item.image.full : '../static/img/no-event-image.jpg'}" alt="foto-${item.slug}">
             ${generateHTMLForEventDetailSocials()}
         </section>
     </div>
@@ -232,6 +232,9 @@ function generateHTMLForSameOrganizerEvent(data) {
         </div>
         <div class="event-category__teasers">
             ${filteredEventsHTML}
+            <div class="dark-button--centered">
+                <a class="dark-button" href="#">Alle evenementen van deze organisator</a>
+            </div>
         </div>
     </div>
     `

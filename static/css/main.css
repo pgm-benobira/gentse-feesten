@@ -1003,7 +1003,7 @@ main a:focus {
     margin-left: auto;
 }
 
-.news__button {
+.dark-button {
     display: inline-block;
     color: white;
     padding: 1.2rem 1.8rem;
@@ -1015,10 +1015,14 @@ main a:focus {
     transition: 0.3s ease;
 }
 
-.news__button:hover {
+.dark-button:hover {
     color: black;
     background-color: white;
     transition: 0.3s ease;
+}
+
+.dark-button--centered {
+    text-align: center;
 }
 
 /* ═══════════════════════════════════ NEWS.HTML ═════════════════════════════════════ */

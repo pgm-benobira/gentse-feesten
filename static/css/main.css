@@ -901,6 +901,10 @@ main a:focus {
     display: none;
 }
 
+.teaser__accessibility {
+    display: none;
+}
+
 /* --------------------------------- News teasers ----------------------------------- */
 
 .segment__content--news {
@@ -1305,6 +1309,22 @@ main a:focus {
     background-color: var(--beige);
 }
 
+.filters__side button:hover {
+    color: var(--beige);
+}
+
+.filters__side button svg:hover {
+    fill: var(--beige);
+}
+
+.accessibility--checked::before {
+    background-color: var(--beige);
+}
+
+.price--checked::before {
+    background-color: var(--beige);
+}
+
 /* Filter: all categories */
 
 .categories {
@@ -1523,6 +1543,14 @@ main a:focus {
 
 .events--list .teaser__paid {
     order: 4;
+    display: block;
+    width: 1.2rem;
+    margin-right: 1.6rem;
+    padding: 0;
+}
+
+.events--list .teaser__accessibility {
+    order: 5;
     display: block;
     width: 1.2rem;
     margin-right: 1.6rem;

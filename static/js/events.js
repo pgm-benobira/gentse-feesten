@@ -1,5 +1,6 @@
 (() => {
 const $events = document.getElementById('events');
+let events = null;
 
 // ---------------- ACTIVE VIEW (list/raster) -------------------------------------------------------------------------------------------------------------
 function changeEventsView() {
@@ -43,6 +44,14 @@ function filteredEventsByDay(events, selectedDay) {
     return events.filter((event) => event.day === selectedDay);
 };
 
+function filteredEventsByDayAccessibility(events) {
+    return events.filter((event) => event.wheelchair_accessible);
+};
+
+function filteredEventsByDayPrice(events) {
+    return events.filter((event) => event.ticket === "free");
+};
+
 // ---------------- CHECK SELECTED DAY --------------------------------------------------------------------------------------------------------------------
 function isValidDay(selectedDay) {
     const eventDays = ['14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
@@ -55,6 +64,33 @@ function handleURLParams() {
     } else {
         window.open('day.html', '_self');
     }
+};
+
+// ---------------- INSPECT CHECKBOXES --------------------------------------------------------------------------------------------------------------------
+const $accessibleElement = document.getElementById('accessibility');
+const $priceElement = document.getElementById('price');
+function clickOnFilter(events) {
+    $accessibleElement.addEventListener('click', () => {
+        $accessibleElement.classList.toggle('accessibility--checked');
+        renderEvents(events);
+    });
+    $priceElement.addEventListener('click', () => {
+        $priceElement.classList.toggle('price--checked');
+        renderEvents(events);
+    });
+};
+
+function inspectCheckboxes(data, selectedDay) {
+    const accessibilityChecked = $accessibleElement.classList.contains('accessibility--checked');
+    const priceChecked = $priceElement.classList.contains('price--checked');
+    data = filteredEventsByDay(data, selectedDay);
+    if (accessibilityChecked) {
+        data = filteredEventsByDayAccessibility(data);
+    }
+    if (priceChecked) {
+        data = filteredEventsByDayPrice(data);
+    }
+    return data;
 };
 
 // ---------------- EVENTS --------------------------------------------------------------------------------------------------------------------------------
@@ -75,7 +111,8 @@ function generateHTMLForEvents(items, category) {
             <h3>${item.title}</h3>
             <p class="teaser__location">${item.location}</p>
             <p class="teaser__start">${item.start} u.</p>
-            ${item.wheelchair_accessible ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
+            ${item.ticket === "paid" ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
+            ${item.wheelchair_accessible ? `<svg class="teaser__accessibility" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m31 24.1.9 1.8a1 1 0 0 1-.45 1.34l-4.1 2.05a2 2 0 0 1-2.7-.94L20.73 20H12a2 2 0 0 1-1.98-1.72C7.9 3.45 8.02 4.38 8 4a4 4 0 1 1 4.59 3.96l.29 2.04H21a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-7.55l.3 2H22c.78 0 1.48.45 1.82 1.15l3.6 7.65 2.25-1.14a1 1 0 0 1 1.34.45zM19.47 22h-1.53A7.01 7.01 0 0 1 4 21c0-2.6 1.42-4.86 3.52-6.08l-.6-4.14A11.03 11.03 0 0 0 0 21a11.01 11.01 0 0 0 21.07 4.43L19.47 22z"/></svg>` : ''}
         </div>
     </a>
     `).join('')
@@ -96,7 +133,7 @@ function generateHTMLForEvents(items, category) {
 
 function renderEvents(data) {
     // Filter events on selected day
-    const filteredEvents = filteredEventsByDay(data, selectedDay)
+    const filteredEvents = inspectCheckboxes(data, selectedDay);
     // Extract unique categories from the events array
     const categories = [...new Set(filteredEvents.map(event => event.category).flat())].sort();
     // Used to accumulate all HTML for all categories
@@ -124,7 +161,7 @@ function renderRandomEvents(amount, data) {
                 <h3>${item.title}</h3>
                 <p class="teaser__location">${item.location}</p>
                 <p class="teaser__start">${item.start} u.</p>
-                ${item.wheelchair_accessible ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
+                ${item.ticket === "paid" ? `<svg class="teaser__paid" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32"><path d="M20.68 27.23c-4.46 0-8-2.35-9.72-6.01h11.76v-3.8H9.9c-.09-.45-.09-.93-.09-1.42 0-.44 0-.88.05-1.33h12.86v-3.8H10.87a10.53 10.53 0 0 1 9.81-6.1c4.38 0 7.83 2.35 9.5 5.97h5.36C33.59 4.34 27.89 0 20.73 0 13.39 0 7.56 4.42 5.53 10.87H0v3.8h4.82c-.05.45-.05.89-.05 1.33 0 .49 0 .97.05 1.42H0v3.8h5.57C7.6 27.62 13.39 32 20.73 32c7.16 0 12.86-4.33 14.8-10.74H30.2a10.16 10.16 0 0 1-9.5 5.97z"/></svg>` : ''}
             </div>
         </a>
     `).join('');
@@ -163,7 +200,8 @@ function initialize () {
     // Load the events from the API
     const api = API_URL;
     fetchData(api, data => {
-        handleURLParams()
+        clickOnFilter(data);
+        handleURLParams();
         renderEvents(data);
         renderRandomEvents(3, data)
         activeCalendarLink(selectedDay);

@@ -40,8 +40,7 @@ function renderCategory($categories, item) {
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
 function initialize () {
-    const api = API_URL;
-    fetchData(api, renderCategories);
+    fetchData(API_URL, renderCategories);
 };
 
 // Call the function for the application

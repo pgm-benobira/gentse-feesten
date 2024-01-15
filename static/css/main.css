@@ -897,10 +897,7 @@ main a:focus {
     margin-top: 1rem;
 }
 
-.teaser__paid {
-    display: none;
-}
-
+.teaser__paid,
 .teaser__accessibility {
     display: none;
 }
@@ -1501,7 +1498,8 @@ main a:focus {
 .events--list .teaser__start,
 .events--list .teaser h3,
 .events--list .teaser__location,
-.events--list .teaser__paid {
+.events--list .teaser__paid,
+.events--list .teaser__accessibility {
     z-index: 2;
     transition: 0.5s ease;
 }
@@ -1509,7 +1507,8 @@ main a:focus {
 .events--list .teaser__wrapper:hover .teaser__start,
 .events--list .teaser__wrapper:hover .teaser h3,
 .events--list .teaser__wrapper:hover .teaser__location,
-.events--list .teaser__wrapper:hover .teaser__paid {
+.events--list .teaser__wrapper:hover .teaser__paid,
+.events--list .teaser__wrapper:hover .teaser__accessibility {
     color: black;
     fill: black;
     border-color: black;
@@ -1541,7 +1540,8 @@ main a:focus {
     padding: 0 1.6rem;
 }
 
-.events--list .teaser__paid {
+.events--list .teaser__paid,
+.events--list .teaser__accessibility {
     order: 4;
     display: block;
     width: 1.2rem;
@@ -1551,10 +1551,6 @@ main a:focus {
 
 .events--list .teaser__accessibility {
     order: 5;
-    display: block;
-    width: 1.2rem;
-    margin-right: 1.6rem;
-    padding: 0;
 }
 
 /* Event category title */
@@ -2065,7 +2061,8 @@ main a:focus {
         padding: 1rem 0;
         transition: none;
     }
-    .events--list .teaser__paid {
+    .events--list .teaser__paid,
+    .events--list .teaser__accessibility {
         margin: 0;
         position: absolute;
         bottom: 0;
@@ -2074,6 +2071,9 @@ main a:focus {
         width: 2.4rem;
         padding: 0.6rem;
         transition: none;
+    }
+    .events--list .teaser__accessibility {
+        top: 0;
     }
 
     /* Detail page */

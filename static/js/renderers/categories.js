@@ -1,22 +1,6 @@
+import { API_URL_CATEGORIES, fetchData } from "../helpers/fetch.js"; 
+
 (() => {
-// ---------------- API URL ------------------------------------------------------------------------------------------------------------------------------
-const API_URL = 'https://www.pgm.gent/data/gentsefeesten/categories.json';
-
-// ---------------- FETCH THE DATA -----------------------------------------------------------------------------------------------------------------------
-async function fetchData(url, callback) {
-    try {
-        const response = await fetch(url);
-        if (response.status === 200) {
-            const data = await response.json();
-            callback(data);
-        } else {
-            throw new Error('Er ging iets mis met de API.');
-        }
-    } catch (error) {
-        console.error(error.message);
-    }
-};
-
 // ---------------- GENERATE USER INTERFACE --------------------------------------------------------------------------------------------------------------
 // Show the user interface for the categories
 function renderCategories(data) {
@@ -40,7 +24,7 @@ function renderCategory($categories, item) {
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application
 function initialize () {
-    fetchData(API_URL, renderCategories);
+    fetchData(API_URL_CATEGORIES, renderCategories);
 };
 
 // Call the function for the application

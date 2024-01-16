@@ -1,47 +1,9 @@
+// ---------------- IMPORT --------------------------------------------------------------------------------------------------------------------------------
+import { changeLogo } from "./helpers/changeLogo.js";
+import { API_URL_NEWS, fetchData } from "./helpers/fetch.js";
+
 (() => {
-// ---------------- RANDOM LETTER ------------------------------------------------------------------------------------------------------------------------
-// Array of possible letters for the src attribute
-const possibleLetters = ["G", "E", "N", "T", "S", "E"];
-
-// Get a random letter from the array
-function getRandomIndex(max) {
-    return Math.floor(Math.random() * max) + 1;
-};
-
-function changeLogo() {
-    const $logoElements = document.querySelectorAll('.logo-gf')
-    const $campaignElements = document.querySelectorAll('.campaign-gf')
-
-    const amountOfLetters = possibleLetters.length;
-    const randomIndex = getRandomIndex(amountOfLetters);
-    const randomLetter = possibleLetters[randomIndex - 1];
-    console.log('Letter:', randomLetter);
-    
-    $logoElements.forEach(logo => {
-        logo.src = `./static/img/gentse-feesten-logos/GF-logo-2023-${randomIndex}-${randomLetter}.svg`
-    });
-    $campaignElements.forEach(elem => {
-        elem.style.backgroundImage = `url(./static/img/gentse-feesten-logos/campagne-${randomIndex}-${randomLetter}.png)`
-    })
-};
-
-// ---------------- API URL ------------------------------------------------------------------------------------------------------------------------------
-const API_URL = 'https://www.pgm.gent/data/gentsefeesten/news.json';
-
-// ---------------- FETCH THE DATA -----------------------------------------------------------------------------------------------------------------------
-async function fetchData(url, callback) {
-    try {
-        const response = await fetch(url);
-        if (response.status === 200) {
-            const data = await response.json();
-            callback(data);
-        } else {
-            throw new Error('Er ging iets mis met de API.');
-        }
-    } catch (error) {
-        console.error(error.message);
-    }
-};
+const urlPath = './static';
 
 // ---------------- GENERATE USER INTERFACE --------------------------------------------------------------------------------------------------------------
 // Show the user interface for the news items
@@ -76,8 +38,8 @@ function renderNewsItem($newsItems, item) {
 // Start the application
 function initialize () {
     // Change the logo
-    changeLogo();
-    fetchData(API_URL, renderNewsItems);
+    changeLogo(urlPath);
+    fetchData(API_URL_NEWS, renderNewsItems);
 };
 
 // Call the function for the application

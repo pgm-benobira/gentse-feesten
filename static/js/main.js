@@ -5,7 +5,7 @@ const $buttonElement = document.querySelector('.menu-button')
 const $closeModalElement = document.querySelector('.menu-button--close')
 
 // ---------------- LANGUAGE -----------------------------------------------------------------------------------------------------------------------------
-function generateUIForLanguages () {
+function renderLanguages () {
     $languageElements.forEach(dropdown => {
         dropdown.addEventListener('click', () => {
             dropdown.classList.toggle('language-button--open')
@@ -14,7 +14,7 @@ function generateUIForLanguages () {
 };
 
 // ---------------- MENU ---------------------------------------------------------------------------------------------------------------------------------
-function generateUIForMenu () {
+function renderMenu () {
     $buttonElement.addEventListener('click', () => {
         $modalElement.classList.add('modal-open')
     });
@@ -25,17 +25,17 @@ function generateUIForMenu () {
 
 // ---------------- GENERATE USER INTERFACE --------------------------------------------------------------------------------------------------------------
 // Show the user interface for 'Gentse Feesten'
-function generateUI () {
+function renderer () {
     // Show the language dropdown
-    generateUIForLanguages();
+    renderLanguages();
     // Show the menu
-    generateUIForMenu();
+    renderMenu();
 };
 
 // ---------------- INITIALIZE APPLICATION ----------------------------------------------------------------------------------------------------------------
 // Start the application 'Gentse Feesten'
 function initialize () {
-    generateUI();
+    renderer();
 };
 
 // Call the function for the application

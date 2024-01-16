@@ -1511,10 +1511,8 @@ main a:focus {
 .events--list .teaser__wrapper:hover .teaser__location,
 .events--list .teaser__wrapper:hover .teaser__paid,
 .events--list .teaser__wrapper:hover .teaser__accessibility {
-    color: black;
-    fill: black;
-    border-color: black;
-    transition: 0.6s ease;
+    filter: invert(100%);
+    transition: 0.8s ease;
 }
 
 .events--list .teaser__start {

@@ -34,9 +34,7 @@ function renderLastThreeNewsItems(amount, data) {
     `).join('');
     const newsGridHTML = `
     ${threeNewsItemsHTML}
-    <div class="news-photo news-item--4">
-        <img src="./static/img/news-decoration-img.jpg" alt="sfeer-beeld-1">
-    </div>
+    <div class="news-photo news-item--4"></div>
     `
     $newsGridElement.innerHTML = newsGridHTML;
 };
